@@ -1,0 +1,69 @@
+package com.example.wheelmanager.controller;
+
+import com.example.wheelmanager.domain.model.UserAddress;
+import com.example.wheelmanager.domain.service.UserAddressService;
+import com.example.wheelmanager.resource.SaveUserAddressResource;
+import com.example.wheelmanager.resource.UserAddressResource;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Tag(name = "UserAddresses",description = "UserAddress API")
+@RestController
+@CrossOrigin
+@RequestMapping("/api")
+public class UserAddressController {
+    @Autowired
+    private ModelMapper mapper;
+
+    @Autowired
+    private UserAddressService userAddressService;
+
+    @GetMapping("/userAddress/{user_id}")
+    public Page<UserAddressResource> getAllUserAddressesByUserId(@PathVariable(name = "user_id") Long userId, Pageable pageable){
+        Page<UserAddress> userAddressResourcePage=userAddressService.getAllUserAddressesByUserId(userId,pageable);
+        List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
+                .map(this::convertToResource).collect(Collectors.toList());
+        return new PageImpl<>(resources,pageable,resources.size());
+    }
+
+    @GetMapping("/userAddress/{address_id}")
+    public Page<UserAddressResource> getAllUserAddressesByAddressId(@PathVariable(name = "address_id") Long addressId, Pageable pageable){
+        Page<UserAddress> userAddressResourcePage=userAddressService.getAllUserAddressesByUserId(addressId,pageable);
+        List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
+                .map(this::convertToResource).collect(Collectors.toList());
+        return new PageImpl<>(resources,pageable,resources.size());
+    }
+
+    @PostMapping("/userAddress")
+    public UserAddressResource createUserAddresses(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "address_id") Long addressId, @Valid @RequestBody SaveUserAddressResource resource){
+        return convertToResource(userAddressService.createUserAddresses(userId,addressId,convertToEntity(resource)));
+    }
+
+    @PutMapping("/userAddress/{/userAddressId}")
+    public UserAddressResource updateUserAddresses(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "address_id") Long addressId, @PathVariable(value="userAddressId") Long userAddressId,@Valid @RequestBody SaveUserAddressResource resource) {
+        return convertToResource(userAddressService.updateUserAddresses(userId,addressId,userAddressId,convertToEntity(resource)));
+    }
+
+    @DeleteMapping("/userAddress/{/userAddressId}")
+    public ResponseEntity<?> deleteUserAddresses(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "address_id") Long addressId, @PathVariable(value="userAddressId") Long userAddressId){
+        return userAddressService.deleteUserAddresses(userId,addressId,userAddressId);
+    }
+
+    private UserAddress convertToEntity(SaveUserAddressResource resource){
+        return mapper.map(resource,UserAddress.class);
+    }
+
+    private UserAddressResource convertToResource(UserAddress entity){
+        return mapper.map(entity, UserAddressResource.class);
+    }
+}

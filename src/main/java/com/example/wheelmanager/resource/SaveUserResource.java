@@ -3,6 +3,7 @@ package com.example.wheelmanager.resource;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 public class SaveUserResource {
     @NotNull
@@ -28,6 +29,8 @@ public class SaveUserResource {
     @NotNull
     @Size(max = 50)
     private String gender;
+    @NotNull
+    private Date birthDay;
 
     public String getUserName() {
         return userName;
@@ -98,6 +101,15 @@ public class SaveUserResource {
 
     public SaveUserResource setGender(String gender) {
         this.gender = gender;
+        return this;
+    }
+
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public SaveUserResource setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
         return this;
     }
 }
