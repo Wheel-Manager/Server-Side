@@ -1,16 +1,19 @@
 package com.example.wheelmanager.resource;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 
 public class SaveAddressResource {
 
     @NotNull
     private Double latitude;
+
     @NotNull
     private Double longitude;
-    @NotNull
-    private String description;
 
+    @NotNull
+    @Lob
+    private String description;
 
     public Double getLatitude() {
         return latitude;
@@ -29,7 +32,6 @@ public class SaveAddressResource {
         this.longitude = longitude;
         return this;
     }
-
 
     public String getDescription() {
         return description;

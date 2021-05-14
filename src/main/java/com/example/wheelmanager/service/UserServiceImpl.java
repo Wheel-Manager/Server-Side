@@ -30,41 +30,33 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "User", "Id", userId));
-
     }
 
     @Override
-    public User createUser(Long addressId, User user) {
-        return addressRepository.findById(addressId).map(address -> {
-            user.setAddress(address);
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUser(Long userId, User userRequest) {
+        return userRepository.findById(userId).map(user -> {
+            user.setUserName(userRequest.getUserName())
+                    .setPassword(userRequest.getPassword())
+                    .setEmail(userRequest.getEmail())
+                    .setName(userRequest.getName())
+                    .setLastName(userRequest.getLastName())
+                    .setImageUrl(userRequest.getImageUrl())
+                    .setDni(userRequest.getDni())
+                    .setGender(userRequest.getGender());
             return userRepository.save(user);
-        }).orElseThrow(() -> new ResourceNotFoundException( "Address", "Id", addressId));
+        }).orElseThrow(()->new ResourceNotFoundException("Tag","Id",userId));
     }
 
     @Override
-    public User updateUser(Long addressId, Long userId, User userRequest) {
-        if(!addressRepository.existsById(addressId))
-            throw new ResourceNotFoundException("Address" + "Id" + addressId);
-
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "User", "Id", userId));
-        return userRepository.save(
-                user.setUserName(userRequest.getUserName())
-                        .setPassword(userRequest.getPassword())
-                        .setEmail(userRequest.getEmail())
-                        .setName(userRequest.getName())
-                        .setLastName(userRequest.getLastName())
-                        .setImageUrl(userRequest.getImageUrl())
-                        .setDni(userRequest.getDni())
-                        .setGender(userRequest.getGender()));
-    }
-
-    @Override
-    public ResponseEntity<?> deleteUser(Long addressId, Long userId) {
-        return userRepository.findByIdAndAddressId(userId, addressId).map(user -> {
+    public ResponseEntity<?> deleteUser(Long userId) {
+        return userRepository.findById(userId).map(user -> {
             userRepository.delete(user);
             return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Message not found with Id " + userId + " and AddressId " + addressId));
+        }).orElseThrow(() -> new ResourceNotFoundException("User" + "Id" + userId));
     }
 }

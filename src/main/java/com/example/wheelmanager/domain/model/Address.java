@@ -18,6 +18,7 @@ public class Address extends AuditModel{
 
 
     @NotNull
+    @Lob
     private String description;
 
     public Long getId() {

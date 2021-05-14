@@ -17,6 +17,7 @@ public class Subscription extends AuditModel {
     private Long id;
 
     @NotNull
+    @Lob
     private String description;
 
     @Temporal(TemporalType.TIMESTAMP)

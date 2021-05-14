@@ -17,11 +17,10 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Tag(name = "Address", description = "Address API")
+@Tag(name = "Addresses", description = "Address API")
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
-
 public class AddressController {
     @Autowired
     AddressService addressService;
@@ -30,7 +29,6 @@ public class AddressController {
 
     @GetMapping(value = "/addresses")
     public Page<AddressResource> getAllAddresses(Pageable pageable) {
-
         Page<Address> addressPage = addressService.getAllAddresses(pageable);
         List<AddressResource> resources = addressPage.getContent()
                 .stream().map(this::convertToResource)
@@ -44,22 +42,16 @@ public class AddressController {
     }
 
     @PostMapping("/addresses")
-    public AddressResource createAddress(
-            @Valid @RequestBody SaveAddressResource resource) {
+    public AddressResource createAddress(@Valid @RequestBody SaveAddressResource resource) {
         Address address = convertToEntity(resource);
         return convertToResource(addressService.createAddress(address));
-
     }
-
 
     @PutMapping("/addresses/{addressId}")
-    public AddressResource updateAddress(@PathVariable Long addressId,
-                                         @Valid @RequestBody SaveAddressResource resource) {
+    public AddressResource updateAddress(@PathVariable Long addressId, @Valid @RequestBody SaveAddressResource resource) {
         Address address = convertToEntity(resource);
-        return convertToResource(
-                addressService.updateAddress(addressId, address));
+        return convertToResource(addressService.updateAddress(addressId, address));
     }
-
 
     @DeleteMapping("/addresses/{addressId}")
     public ResponseEntity<?> deleteAddress(@PathVariable Long addressId) {
@@ -67,7 +59,6 @@ public class AddressController {
     }
 
     private Address convertToEntity(SaveAddressResource resource) {
-
         return mapper.map(resource, Address.class);
     }
 

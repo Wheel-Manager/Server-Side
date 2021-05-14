@@ -12,26 +12,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OfferServiceImpl implements OfferService {
-
     @Autowired
     private OfferRepository offerRepository;
 
     @Override
-    public Page<Offer> getAllOffers(Pageable pageable)
-    {
+    public Page<Offer> getAllOffers(Pageable pageable) {
         return offerRepository.findAll(pageable);
     }
 
     @Override
-    public Offer getOfferById(Long offerId){
+    public Offer getOfferById(Long offerId) {
         return offerRepository.findById(offerId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Offer", "Id", offerId));
-
     }
 
     @Override
-    public Offer createOffer(Offer offer) { return offerRepository.save(offer); }
+    public Offer createOffer(Offer offer) {
+        return offerRepository.save(offer);
+    }
 
     @Override
     public Offer updateOffer(Long offerId, Offer offerRequest) {
@@ -40,9 +39,9 @@ public class OfferServiceImpl implements OfferService {
                         "Offer", "Id", offerId));
         return offerRepository.save(
                 offer.setName(offerRequest.getName())
-                     .setDescription(offerRequest.getDescription())
-                     .setImageUrl(offerRequest.getImageUrl())
-                     .setOfferPrice(offerRequest.getOfferPrice()));
+                        .setDescription(offerRequest.getDescription())
+                        .setImageUrl(offerRequest.getImageUrl())
+                        .setOfferPrice(offerRequest.getOfferPrice()));
     }
 
     @Override

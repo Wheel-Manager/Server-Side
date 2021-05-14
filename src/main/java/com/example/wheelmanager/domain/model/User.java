@@ -1,9 +1,5 @@
 package com.example.wheelmanager.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -16,41 +12,34 @@ public class User extends AuditModel {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @Column(name = "user_name",nullable = false,length = 50)
     private String userName;
 
-    @NotNull
+    @Column(name = "password",nullable = false,length = 25)
     private String password;
 
-    @NotNull
+    @Column(name = "email",nullable = false,length = 150)
     private String email;
 
-    @NotNull
+    @Column(name = "name",nullable = false,length = 25)
     private String name;
 
-    @NotNull
+    @Column(name = "last_name",nullable = false,length = 30)
     private String lastName;
 
     @NotNull
+    @Lob
     private String imageUrl;
 
     @NotNull
     private Long dni;
 
     @NotNull
+    @Column(name = "user_name",nullable = false,length = 50)
     private String gender;
 
-    @NotNull
+    @Column(name = "birth_day",nullable = false)
     private Date birthDay;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "address_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private Address address;
-
-    @OneToMany(mappedBy = "user")
-    private List<Subscription> subscriptionList;
 
     public Long getId() {
         return id;
@@ -139,24 +128,6 @@ public class User extends AuditModel {
 
     public User setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
-        return this;
-    }
-
-    public List<Subscription> getSubscriptions() {
-        return subscriptionList;
-    }
-
-    public User setSubscriptions(List<Subscription> subscriptions) {
-        this.subscriptionList = subscriptions;
-        return this;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public User setAddress(Address address) {
-        this.address = address;
         return this;
     }
 }

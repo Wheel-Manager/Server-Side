@@ -29,12 +29,12 @@ public class UserController {
 
     @GetMapping("/users")
     public Page<UserResource> getAllUsers(Pageable pageable) {
-
-        Page<User> userPage = userService.getAllUsers(pageable);
-        List<UserResource> resources = userPage.getContent()
-                .stream().map(this::convertToResource)
+        List<UserResource> users = userService.getAllUsers(pageable)
+                .getContent().stream()
+                .map(this::convertToResource)
                 .collect(Collectors.toList());
-        return new PageImpl<>(resources, pageable, resources.size());
+        int userCount=users.size();
+        return new PageImpl<>(users, pageable, userCount);
     }
 
     @GetMapping("/users/{userId}")
@@ -42,26 +42,23 @@ public class UserController {
         return convertToResource(userService.getUserById(userId));
     }
 
-    @PostMapping("/addresses/{addressId}/users")
-    public UserResource createUser(@PathVariable(value = "addressId") Long addressId,
-                                   @Valid @RequestBody SaveUserResource resource) {
+    @PostMapping("/users")
+    public UserResource createUser(@Valid @RequestBody SaveUserResource resource) {
         User user = convertToEntity(resource);
-        return convertToResource(userService.createUser(addressId, user));
+        return convertToResource(userService.createUser(user));
 
     }
 
-    @PutMapping("/addresses/{addressId}/users/{userId}")
-    public UserResource updateUser(@PathVariable (value = "addressId") Long addressId,
-                                   @PathVariable Long userId, @Valid @RequestBody SaveUserResource resource) {
+    @PutMapping("/users/{userId}")
+    public UserResource updateUser(@PathVariable Long userId, @Valid @RequestBody SaveUserResource resource) {
         User user = convertToEntity(resource);
         return convertToResource(
-                userService.updateUser(addressId, userId, user));
+                userService.updateUser(userId, user));
     }
 
-    @DeleteMapping("/addresses/{addressId}/users/{userId}")
-    public ResponseEntity<?> deleteUser(@PathVariable (value = "addressId") Long addressId,
-                                        @PathVariable Long userId) {
-        return userService.deleteUser(addressId, userId);
+    @DeleteMapping("/users/{userId}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
+        return userService.deleteUser(userId);
     }
 
     private User convertToEntity(SaveUserResource resource) {
@@ -72,5 +69,4 @@ public class UserController {
     private UserResource convertToResource(User entity) {
         return mapper.map(entity, UserResource.class);
     }
-
 }

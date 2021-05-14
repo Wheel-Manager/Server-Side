@@ -1,7 +1,6 @@
 package com.example.wheelmanager.domain.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "vehicle_types")
@@ -10,7 +9,7 @@ public class VehicleType extends AuditModel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @Column(name = "type_name",nullable = false,length = 50)
     private String typeName;
 
     public Long getId() {
