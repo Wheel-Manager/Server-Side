@@ -12,16 +12,16 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 public abstract class AuditModel {
+
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at",nullable = false,updatable = false)
     @CreatedDate
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "updated_at", nullable = false)
+    @Column(name = "updated_at",nullable = false)
     @LastModifiedDate
     private Date updatedAt;
-
 
     public Date getCreatedAt() {
         return createdAt;

@@ -17,6 +17,7 @@ public class CreditCard extends AuditModel {
     private Long id;
 
     @NotNull
+    @Column(name = "name",length = 100)
     private String cardNumber;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -32,7 +33,6 @@ public class CreditCard extends AuditModel {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private User user;
-
 
     public Long getId() {
         return id;

@@ -16,8 +16,7 @@ public class AddressServiceImpl implements AddressService {
     private AddressRepository addressRepository;
 
     @Override
-    public Page<Address> getAllAddresses(Pageable pageable)
-    {
+    public Page<Address> getAllAddresses(Pageable pageable) {
         return addressRepository.findAll(pageable);
     }
 
@@ -26,11 +25,12 @@ public class AddressServiceImpl implements AddressService {
         return addressRepository.findById(addressId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Address", "Id", addressId));
-
     }
 
     @Override
-    public Address createAddress(Address address) { return addressRepository.save(address); }
+    public Address createAddress(Address address) {
+        return addressRepository.save(address);
+    }
 
     @Override
     public Address updateAddress(Long addressId, Address addressRequest) {

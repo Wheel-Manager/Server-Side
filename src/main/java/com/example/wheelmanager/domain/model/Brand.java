@@ -13,6 +13,7 @@ public class Brand extends AuditModel {
     private Long id;
 
     @NotNull
+    @Column(name = "name",length = 100)
     private String brandName;
 
     public Brand setId(Long id) {

@@ -6,13 +6,9 @@ import java.util.Date;
 
 public class SubscriptionResource extends AuditModel {
     private Long id;
-
     private String description;
-
     private Date startDate;
-
     private double price;
-
     private UserResource user;
 
     public Long getId() {

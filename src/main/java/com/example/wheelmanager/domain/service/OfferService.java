@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 public interface OfferService {
     Page<Offer> getAllOffers(Pageable pageable);
     Offer getOfferById(Long offerId);
-    Offer createOffer(Offer offerId);
+    Offer createOffer(Offer offer);
     Offer updateOffer(Long offerId, Offer messageRequest);
     ResponseEntity<?> deleteOffer(Long offerId);
 }

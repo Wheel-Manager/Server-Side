@@ -45,5 +45,4 @@ public class CreditCardResource extends AuditModel {
         this.cardCvv = cardCvv;
         return this;
     }
-
 }

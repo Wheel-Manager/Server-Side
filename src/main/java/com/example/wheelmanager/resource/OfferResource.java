@@ -53,7 +53,7 @@ public class OfferResource extends AuditModel {
         return startDate;
     }
 
-    public OfferResource setImageUrl(Date startDate) {
+    public OfferResource setStartDate(Date startDate) {
         this.startDate = startDate;
         return this;
     }

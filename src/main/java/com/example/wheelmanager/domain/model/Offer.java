@@ -4,6 +4,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -14,11 +15,17 @@ public class Offer extends AuditModel {
     private Long id;
 
     @NotNull
+    @Size(max = 50)
     private String name;
+
     @NotNull
+    @Lob
     private String description;
+
     @NotNull
+    @Lob
     private String imageUrl;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name= "start_date", nullable = false, updatable = false)
     @CreatedDate
@@ -30,6 +37,7 @@ public class Offer extends AuditModel {
     private Date endDate;
 
     @NotNull
+    @Column(name = "offer_price")
     private Double offerPrice;
 
     public Long getId() {
@@ -72,7 +80,7 @@ public class Offer extends AuditModel {
         return startDate;
     }
 
-    public Offer setImageUrl(Date startDate) {
+    public Offer setStartDate(Date startDate) {
         this.startDate = startDate;
         return this;
     }
@@ -94,9 +102,4 @@ public class Offer extends AuditModel {
         this.offerPrice = offerPrice;
         return this;
     }
-
-
-
-
-
 }

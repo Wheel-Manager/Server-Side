@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Tag(name = "Offer", description = "Offer API")
+@Tag(name = "Offers", description = "Offer API")
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
@@ -27,12 +27,11 @@ public class OfferController {
     @Autowired
     private ModelMapper mapper;
 
-    @GetMapping("/offers")
+    @GetMapping("/offer")
     public Page<OfferResource> getAllOffers(Pageable pageable) {
-
-        Page<Offer> offerPage = offerService.getAllOffers(pageable);
-        List<OfferResource> resources = offerPage.getContent()
-                .stream().map(this::convertToResource)
+        Page<Offer> offerPage=offerService.getAllOffers(pageable);
+        List<OfferResource> resources = offerPage.getContent().stream()
+                .map(this::convertToResource)
                 .collect(Collectors.toList());
         return new PageImpl<>(resources, pageable, resources.size());
     }
@@ -43,19 +42,15 @@ public class OfferController {
     }
 
     @PostMapping("/offers")
-    public OfferResource createOffer(
-            @Valid @RequestBody SaveOfferResource resource) {
+    public OfferResource createOffer(@Valid @RequestBody SaveOfferResource resource) {
         Offer offer = convertToEntity(resource);
         return convertToResource(offerService.createOffer(offer));
-
     }
 
     @PutMapping("/offers/{offerId}")
-    public OfferResource updateOffer(@PathVariable Long offerId,
-                                       @Valid @RequestBody SaveOfferResource resource) {
+    public OfferResource updateOffer(@PathVariable Long offerId, @Valid @RequestBody SaveOfferResource resource) {
         Offer offer = convertToEntity(resource);
-        return convertToResource(
-                offerService.updateOffer(offerId, offer));
+        return convertToResource(offerService.updateOffer(offerId, offer));
     }
 
     @DeleteMapping("/offers/{offerId}")
@@ -64,12 +59,10 @@ public class OfferController {
     }
 
     private Offer convertToEntity(SaveOfferResource resource) {
-
         return mapper.map(resource, Offer.class);
     }
 
     private OfferResource convertToResource(Offer entity) {
         return mapper.map(entity, OfferResource.class);
     }
-
 }
