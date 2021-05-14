@@ -47,7 +47,8 @@ public class UserServiceImpl implements UserService {
                     .setLastName(userRequest.getLastName())
                     .setImageUrl(userRequest.getImageUrl())
                     .setDni(userRequest.getDni())
-                    .setGender(userRequest.getGender());
+                    .setGender(userRequest.getGender())
+                    .setBirthDay(userRequest.getBirthDay());
             return userRepository.save(user);
         }).orElseThrow(()->new ResourceNotFoundException("Tag","Id",userId));
     }

@@ -3,7 +3,9 @@ package com.example.wheelmanager.domain.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -29,17 +31,21 @@ public class User extends AuditModel {
 
     @NotNull
     @Lob
+    @Column(name = "image_url")
     private String imageUrl;
 
     @NotNull
     private Long dni;
 
     @NotNull
-    @Column(name = "user_name",nullable = false,length = 50)
+    @Column(name = "gender",nullable = false,length = 50)
     private String gender;
 
     @Column(name = "birth_day",nullable = false)
     private Date birthDay;
+
+    /*@OneToMany(mappedBy = "users")
+    private Set<UserAddress> userAddresses=new HashSet<>();*/
 
     public Long getId() {
         return id;
@@ -130,4 +136,13 @@ public class User extends AuditModel {
         this.birthDay = birthDay;
         return this;
     }
+
+    /*public Set<UserAddress> getUserAddresses() {
+        return userAddresses;
+    }
+
+    public User setUserAddresses(Set<UserAddress> userAddresses) {
+        this.userAddresses = userAddresses;
+        return this;
+    }*/
 }
