@@ -1,6 +1,5 @@
 package com.example.wheelmanager.resource;
 
-import javax.persistence.*;
 
 public class SaveUserAddressResource {
     private boolean selected;
