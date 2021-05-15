@@ -15,7 +15,7 @@ public class Offer extends AuditModel {
     private Long id;
 
     @NotNull
-    @Size(max = 50)
+    @Column(name = "offer_name",length = 50)
     private String name;
 
     @NotNull
@@ -23,6 +23,7 @@ public class Offer extends AuditModel {
     private String description;
 
     @NotNull
+    @Column(name = "image_url")
     @Lob
     private String imageUrl;
 

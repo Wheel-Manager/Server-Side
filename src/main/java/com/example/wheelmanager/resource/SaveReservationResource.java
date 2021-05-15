@@ -22,5 +22,30 @@ public class SaveReservationResource {
     @NotNull
     private Double price;
 
+    public Date getStartDate() {
+        return startDate;
+    }
 
+    public SaveReservationResource setStartDate(Date startDate) {
+        this.startDate = startDate;
+        return this;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public SaveReservationResource setEndDate(Date endDate) {
+        this.endDate = endDate;
+        return this;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public SaveReservationResource setPrice(Double price) {
+        this.price = price;
+        return this;
+    }
 }
