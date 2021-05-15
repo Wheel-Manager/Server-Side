@@ -23,9 +23,6 @@ public class Address extends AuditModel{
     @Lob
     private String description;
 
-    /*@OneToMany(mappedBy = "addresses")
-    private Set<UserAddress> userAddresses=new HashSet<>();*/
-
     public Long getId() {
         return id;
     }
@@ -61,13 +58,4 @@ public class Address extends AuditModel{
         this.description = description;
         return this;
     }
-
-   /* public Set<UserAddress> getUserAddresses() {
-        return userAddresses;
-    }
-
-    public Address setUserAddresses(Set<UserAddress> userAddresses) {
-        this.userAddresses = userAddresses;
-        return this;
-    }*/
 }

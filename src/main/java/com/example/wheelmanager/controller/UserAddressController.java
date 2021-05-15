@@ -28,16 +28,16 @@ public class UserAddressController {
     @Autowired
     private UserAddressService userAddressService;
 
-    @GetMapping("/userAddress/{user_id}")
-    public Page<UserAddressResource> getAllUserAddressesByUserId(@PathVariable(name = "user_id") Long userId, Pageable pageable){
+    @GetMapping("/userAddress/{userId}")
+    public Page<UserAddressResource> getAllUserAddressesByUserId(@PathVariable(name = "userId") Long userId, Pageable pageable){
         Page<UserAddress> userAddressResourcePage=userAddressService.getAllUserAddressesByUserId(userId,pageable);
         List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
                 .map(this::convertToResource).collect(Collectors.toList());
         return new PageImpl<>(resources,pageable,resources.size());
     }
 
-    @GetMapping("/userAddress/{address_id}")
-    public Page<UserAddressResource> getAllUserAddressesByAddressId(@PathVariable(name = "address_id") Long addressId, Pageable pageable){
+    @GetMapping("/userAddress/{addressId}")
+    public Page<UserAddressResource> getAllUserAddressesByAddressId(@PathVariable(name = "addressId") Long addressId, Pageable pageable){
         Page<UserAddress> userAddressResourcePage=userAddressService.getAllUserAddressesByUserId(addressId,pageable);
         List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
                 .map(this::convertToResource).collect(Collectors.toList());
@@ -45,17 +45,17 @@ public class UserAddressController {
     }
 
     @PostMapping("/userAddress")
-    public UserAddressResource createUserAddresses(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "address_id") Long addressId, @Valid @RequestBody SaveUserAddressResource resource){
+    public UserAddressResource createUserAddresses(@RequestParam(name = "userId") Long userId, @RequestParam(name = "addressId") Long addressId, @Valid @RequestBody SaveUserAddressResource resource){
         return convertToResource(userAddressService.createUserAddresses(userId,addressId,convertToEntity(resource)));
     }
 
-    @PutMapping("/userAddress/{/userAddressId}")
-    public UserAddressResource updateUserAddresses(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "address_id") Long addressId, @PathVariable(value="userAddressId") Long userAddressId,@Valid @RequestBody SaveUserAddressResource resource) {
+    @PutMapping("/userAddress/{userAddressId}")
+    public UserAddressResource updateUserAddresses(@RequestParam(name = "userId") Long userId, @RequestParam(name = "addressId") Long addressId, @PathVariable(value="userAddressId") Long userAddressId,@Valid @RequestBody SaveUserAddressResource resource) {
         return convertToResource(userAddressService.updateUserAddresses(userId,addressId,userAddressId,convertToEntity(resource)));
     }
 
-    @DeleteMapping("/userAddress/{/userAddressId}")
-    public ResponseEntity<?> deleteUserAddresses(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "address_id") Long addressId, @PathVariable(value="userAddressId") Long userAddressId){
+    @DeleteMapping("/userAddress/{userAddressId}")
+    public ResponseEntity<?> deleteUserAddresses(@RequestParam(name = "userId") Long userId, @RequestParam(name = "addressId") Long addressId, @PathVariable(value="userAddressId") Long userAddressId){
         return userAddressService.deleteUserAddresses(userId,addressId,userAddressId);
     }
 

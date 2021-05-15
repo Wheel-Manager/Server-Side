@@ -44,9 +44,6 @@ public class User extends AuditModel {
     @Column(name = "birth_day",nullable = false)
     private Date birthDay;
 
-    /*@OneToMany(mappedBy = "users")
-    private Set<UserAddress> userAddresses=new HashSet<>();*/
-
     public Long getId() {
         return id;
     }
@@ -136,13 +133,4 @@ public class User extends AuditModel {
         this.birthDay = birthDay;
         return this;
     }
-
-    /*public Set<UserAddress> getUserAddresses() {
-        return userAddresses;
-    }
-
-    public User setUserAddresses(Set<UserAddress> userAddresses) {
-        this.userAddresses = userAddresses;
-        return this;
-    }*/
 }
