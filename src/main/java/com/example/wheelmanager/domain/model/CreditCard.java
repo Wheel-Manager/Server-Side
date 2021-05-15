@@ -17,7 +17,7 @@ public class CreditCard extends AuditModel {
     private Long id;
 
     @NotNull
-    @Column(name = "name",length = 100)
+    @Column(name = "card_number",length = 100)
     private String cardNumber;
 
     @Temporal(TemporalType.TIMESTAMP)

@@ -11,7 +11,7 @@ public class Status extends AuditModel{
     private Long id;
 
     @NotNull
-    @Column(name = "name",length = 100)
+    @Column(name = "status_name",length = 100)
     private String name;
 
     public Long getId() {
