@@ -51,7 +51,7 @@ public class SubscriptionController {
 
     @PutMapping("/users/{userId}/subscriptions/{subscriptionId}")
     public SubscriptionResource updateSubscription(@PathVariable (value = "userId") Long userId,
-                                                   @PathVariable Long subscriptionId, @Valid @RequestBody SaveSubscriptionResource resource){
+                                                   @PathVariable (value = "subscriptionId") Long subscriptionId, @Valid @RequestBody SaveSubscriptionResource resource){
         Subscription subscription = convertToEntity(resource);
         return  convertToResource(subscriptionService.updateSubscription(userId, subscriptionId,subscription));
     }

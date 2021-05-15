@@ -43,12 +43,12 @@ public class Subscription extends AuditModel {
         return this;
     }
 
-    public String getDescriptions() {
+    public String getDescription() {
         return description;
     }
 
-    public Subscription setDescriptions(String descriptions) {
-        this.description = descriptions;
+    public Subscription setDescription(String description) {
+        this.description = description;
         return this;
     }
 
