@@ -1,6 +1,6 @@
 package com.example.wheelmanager.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "subscription")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Subscription extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +32,6 @@ public class Subscription extends AuditModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private User user;
 
     public Long getId() {

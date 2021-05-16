@@ -16,8 +16,6 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private AddressRepository addressRepository;
 
     @Override
     public Page<User> getAllUsers(Pageable pageable)
