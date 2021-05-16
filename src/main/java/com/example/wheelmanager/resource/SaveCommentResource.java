@@ -14,6 +14,21 @@ public class SaveCommentResource {
     @Lob
     private String content;
 
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
 
+    public SaveCommentResource setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
+        return this;
+    }
 
+    public String getContent() {
+        return content;
+    }
+
+    public SaveCommentResource setContent(String content) {
+        this.content = content;
+        return this;
+    }
 }

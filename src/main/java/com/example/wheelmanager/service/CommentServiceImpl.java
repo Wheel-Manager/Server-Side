@@ -25,7 +25,7 @@ public class CommentServiceImpl implements CommentService {
     private VehicleRepository vehicleRepository;
 
 
-    @Override
+    /*@Override
     public Page<Comment> getAllCommentsByUserId(Long userId, Pageable pageable) {
         return commentRepository.getAllCommentsByUserId(userId,pageable);
     }
@@ -33,14 +33,31 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Page<Comment> getAllCommentsByVehicleId(Long vehicleId, Pageable pageable) {
         return commentRepository.getAllCommentsByVehicleId(vehicleId,pageable);
-    }
+    }*/
 
-    @Override
+
+    /*@Override
     public Comment getCommentsByIdByUserIdAndAddressId(Long userId, Long vehicleId, Long commentId) {
         return commentRepository.findByIdAndUserIdAndVehicleId(commentId,userId,vehicleId).
                 orElseThrow(()->new ResourceNotFoundException(
                         "Comment not found with Id"+commentId
                                 +"and UserId"+userId+"and VehicleId"+vehicleId));
+
+    }*/
+
+    @Override
+    public Page<Comment> getAllComments(Pageable pageable)
+    {
+        return commentRepository.findAll(pageable);
+    }
+
+
+
+    @Override
+    public Comment getCommentById(Long commentId){
+        return commentRepository.findById(commentId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Comment", "Id", commentId));
 
     }
 

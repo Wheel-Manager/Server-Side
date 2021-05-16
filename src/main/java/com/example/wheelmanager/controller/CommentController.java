@@ -1,9 +1,13 @@
 package com.example.wheelmanager.controller;
 
 import com.example.wheelmanager.domain.model.Comment;
+import com.example.wheelmanager.domain.model.CreditCard;
+import com.example.wheelmanager.domain.model.Subscription;
 import com.example.wheelmanager.domain.service.CommentService;
 import com.example.wheelmanager.resource.CommentResource;
+import com.example.wheelmanager.resource.CreditCardResource;
 import com.example.wheelmanager.resource.SaveCommentResource;
+import com.example.wheelmanager.resource.SubscriptionResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +32,20 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/comments/{user_id}")
-    public Page<CommentResource> getAllCommentsByUserId(@PathVariable(name = "user_id") Long userId, Pageable pageable) {
-        Page<Comment> reservationPage = commentService.getAllCommentsByUserId(userId, pageable);
-        List<CommentResource> resources = reservationPage.getContent().stream()
-                .map(this::convertToResource).collect(Collectors.toList());
+
+    @GetMapping("/comments")
+    public Page<CommentResource> getAllComments(Pageable pageable) {
+        Page<Comment> commentPage = commentService.getAllComments(pageable);
+        List<CommentResource> resources = commentPage.getContent()
+                .stream().map(this::convertToResource)
+                .collect(Collectors.toList());
         return new PageImpl<>(resources, pageable, resources.size());
     }
 
-    @GetMapping("/comments/{vehicle_id}")
-    public Page<CommentResource> getAllCommentsByVehicleId(@PathVariable(name = "vehicle_Id") Long vehicleId, Pageable pageable) {
-        Page<Comment> reservationPage = commentService.getAllCommentsByVehicleId(vehicleId, pageable);
-        List<CommentResource> resources = reservationPage.getContent().stream()
-                .map(this::convertToResource).collect(Collectors.toList());
-        return new PageImpl<>(resources, pageable, resources.size());
+
+    @GetMapping("/comments/{commentId}")
+    public CommentResource getCommentById(@PathVariable(value = "commentId") Long commentId) {
+        return convertToResource(commentService.getCommentById(commentId));
     }
 
     @PostMapping("/comments")
@@ -58,6 +62,22 @@ public class CommentController {
     public ResponseEntity<?> deleteReservation(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "vehicle_id") Long vehicleId, @PathVariable(value = "comment_id") Long commentId) {
         return commentService.deleteComment(userId, vehicleId, commentId);
     }
+
+    /*@GetMapping("/comments/{user_id}")
+    public Page<CommentResource> getAllCommentsByUserId(@PathVariable(name = "user_id") Long userId, Pageable pageable) {
+        Page<Comment> reservationPage = commentService.getAllCommentsByUserId(userId, pageable);
+        List<CommentResource> resources = reservationPage.getContent().stream()
+                .map(this::convertToResource).collect(Collectors.toList());
+        return new PageImpl<>(resources, pageable, resources.size());
+    }
+
+    @GetMapping("/comments/{vehicle_id}")
+    public Page<CommentResource> getAllCommentsByVehicleId(@PathVariable(name = "vehicle_Id") Long vehicleId, Pageable pageable) {
+        Page<Comment> reservationPage = commentService.getAllCommentsByVehicleId(vehicleId, pageable);
+        List<CommentResource> resources = reservationPage.getContent().stream()
+                .map(this::convertToResource).collect(Collectors.toList());
+        return new PageImpl<>(resources, pageable, resources.size());
+    }*/
 
     private Comment convertToEntity(SaveCommentResource resource) {
         return mapper.map(resource, Comment.class);
