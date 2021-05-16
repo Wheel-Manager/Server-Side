@@ -1,8 +1,10 @@
 package com.example.wheelmanager.resource;
 
+import com.example.wheelmanager.domain.model.AuditModel;
+
 import java.util.Date;
 
-public class ReservationResource {
+public class ReservationResource extends AuditModel {
     private Long id;
     private Date startDate;
     private Date endDate;

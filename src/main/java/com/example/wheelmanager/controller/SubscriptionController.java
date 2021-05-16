@@ -42,8 +42,8 @@ public class SubscriptionController {
         return convertToResource(subscriptionService.getSubscriptionById(subscriptionId));
     }
 
-    @PostMapping("/users/{userId}/subscriptions")
-    public SubscriptionResource createSubscription(@PathVariable(value = "userId") Long userId,
+    @PostMapping("/subscriptions")
+    public SubscriptionResource createSubscription(@RequestParam(value = "userId") Long userId,
                                                    @Valid @RequestBody SaveSubscriptionResource resource){
         Subscription subscription = convertToEntity(resource);
         return  convertToResource(subscriptionService.createSubscription(userId, subscription));
@@ -51,7 +51,7 @@ public class SubscriptionController {
 
     @PutMapping("/users/{userId}/subscriptions/{subscriptionId}")
     public SubscriptionResource updateSubscription(@PathVariable (value = "userId") Long userId,
-                                                   @PathVariable Long subscriptionId, @Valid @RequestBody SaveSubscriptionResource resource){
+                                                   @PathVariable (value = "subscriptionId") Long subscriptionId, @Valid @RequestBody SaveSubscriptionResource resource){
         Subscription subscription = convertToEntity(resource);
         return  convertToResource(subscriptionService.updateSubscription(userId, subscriptionId,subscription));
     }
