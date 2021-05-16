@@ -28,25 +28,25 @@ public class UserAddressController {
     @Autowired
     private UserAddressService userAddressService;
 
-    @GetMapping("/userAddress/{userId}")
-    public Page<UserAddressResource> getAllUserAddressesByUserId(@PathVariable(name = "userId") Long userId, Pageable pageable){
-        Page<UserAddress> userAddressResourcePage=userAddressService.getAllUserAddressesByUserId(userId,pageable);
+    @GetMapping("/userAddress")
+    public Page<UserAddressResource> getAllUserAddresses(Pageable pageable){
+        Page<UserAddress> userAddressResourcePage = userAddressService.getAllUserAddresses(pageable);
         List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
                 .map(this::convertToResource).collect(Collectors.toList());
         return new PageImpl<>(resources,pageable,resources.size());
     }
 
-    @GetMapping("/userAddress/{addressId}")
-    public Page<UserAddressResource> getAllUserAddressesByAddressId(@PathVariable(name = "addressId") Long addressId, Pageable pageable){
-        Page<UserAddress> userAddressResourcePage=userAddressService.getAllUserAddressesByUserId(addressId,pageable);
-        List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
-                .map(this::convertToResource).collect(Collectors.toList());
-        return new PageImpl<>(resources,pageable,resources.size());
+    @GetMapping("/userAddress/{userAddressId}")
+    public UserAddressResource getUserAddressById(@PathVariable(value = "userAddressId")Long userAddressId){
+        return convertToResource(userAddressService.getUserAddressesById(userAddressId));
     }
 
     @PostMapping("/userAddress")
-    public UserAddressResource createUserAddresses(@RequestParam(name = "userId") Long userId, @RequestParam(name = "addressId") Long addressId, @Valid @RequestBody SaveUserAddressResource resource){
-        return convertToResource(userAddressService.createUserAddresses(userId,addressId,convertToEntity(resource)));
+    public UserAddressResource createUserAddresses(@RequestParam(name = "userId") Long userId,
+                                                   @RequestParam(name = "addressId") Long addressId,
+                                                   @Valid @RequestBody SaveUserAddressResource resource){
+        UserAddress userAddress=convertToEntity(resource);
+        return convertToResource(userAddressService.createUserAddresses(userId,addressId,userAddress));
     }
 
     @PutMapping("/userAddress/{userAddressId}")

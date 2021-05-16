@@ -1,6 +1,7 @@
 package com.example.wheelmanager.resource;
 
 import com.example.wheelmanager.domain.model.AuditModel;
+import com.example.wheelmanager.domain.model.User;
 
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class SubscriptionResource extends AuditModel {
     private String description;
     private Date startDate;
     private double price;
-    private UserResource user;
+    private User user;
 
     public Long getId() {
         return id;
@@ -47,11 +48,11 @@ public class SubscriptionResource extends AuditModel {
         return this;
     }
 
-    public UserResource getUser() {
+    public User getUser() {
         return user;
     }
 
-    public SubscriptionResource setUser(UserResource user) {
+    public SubscriptionResource setUser(User user) {
         this.user = user;
         return this;
     }
