@@ -1,5 +1,6 @@
 package com.example.wheelmanager.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "offers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Offer extends AuditModel {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
