@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.SaveVehicleTypeResource;
 import com.example.wheelmanager.resource.VehicleTypeResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,7 @@ public class VehicleTypeController {
     private ModelMapper mapper;
 
     @GetMapping("/vehicletypes")
-    public Page<VehicleTypeResource> getAllVehicleTypes(Pageable pageable){
+    public Page<VehicleTypeResource> getAllVehicleTypes(@ParameterObject Pageable pageable){
         Page<VehicleType>  vehicleTypesPage = vehicleTypeService.getAllVehicleTypes(pageable);
         List<VehicleTypeResource> resources = vehicleTypesPage.getContent()
                 .stream().map(this::convertToResource)

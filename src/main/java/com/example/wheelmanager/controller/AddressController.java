@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.AddressResource;
 import com.example.wheelmanager.resource.SaveAddressResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -28,7 +29,7 @@ public class AddressController {
     private ModelMapper mapper;
 
     @GetMapping(value = "/addresses")
-    public Page<AddressResource> getAllAddresses(Pageable pageable) {
+    public Page<AddressResource> getAllAddresses(@ParameterObject Pageable pageable) {
         Page<Address> addressPage = addressService.getAllAddresses(pageable);
         List<AddressResource> resources = addressPage.getContent()
                 .stream().map(this::convertToResource)

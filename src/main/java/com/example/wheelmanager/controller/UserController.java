@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.SaveUserResource;
 import com.example.wheelmanager.resource.UserResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -28,7 +29,7 @@ public class UserController {
     private ModelMapper mapper;
 
     @GetMapping("/users")
-    public Page<UserResource> getAllUsers(Pageable pageable) {
+    public Page<UserResource> getAllUsers(@ParameterObject Pageable pageable) {
         List<UserResource> users = userService.getAllUsers(pageable)
                 .getContent().stream()
                 .map(this::convertToResource)

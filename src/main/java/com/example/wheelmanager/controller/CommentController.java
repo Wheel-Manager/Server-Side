@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.CommentResource;
 import com.example.wheelmanager.resource.SaveCommentResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -30,7 +31,7 @@ public class CommentController {
 
 
     @GetMapping("/comments")
-    public Page<CommentResource> getAllComments(Pageable pageable) {
+    public Page<CommentResource> getAllComments(@ParameterObject Pageable pageable) {
         Page<Comment> commentPage = commentService.getAllComments(pageable);
         List<CommentResource> resources = commentPage.getContent()
                 .stream().map(this::convertToResource)

@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.SaveSubscriptionResource;
 import com.example.wheelmanager.resource.SubscriptionResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,7 @@ public class SubscriptionController {
     private ModelMapper mapper;
 
     @GetMapping("/subscriptions")
-    public Page<SubscriptionResource> getAllSubscriptions(Pageable pageable){
+    public Page<SubscriptionResource> getAllSubscriptions(@ParameterObject Pageable pageable){
         Page<Subscription> subscriptionPage = subscriptionService.getAllSubscriptions(pageable);
         List<SubscriptionResource> resources = subscriptionPage.getContent()
                 .stream().map(this::convertToResource)
