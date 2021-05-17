@@ -50,18 +50,17 @@ public class CreditCardController {
 
     }
 
-    @PutMapping("/users/{userId}/creditcards/{creditCardId}")
-    public CreditCardResource updateCreditCard(@PathVariable (value = "userId") Long userId,
-            @PathVariable Long creditCardId, @Valid @RequestBody SaveCreditCardResource resource) {
+    @PutMapping("/creditcards/{creditCardId}")
+    public CreditCardResource updateCreditCard(@PathVariable Long creditCardId,
+                                               @Valid @RequestBody SaveCreditCardResource resource) {
         CreditCard creditCard = convertToEntity(resource);
         return convertToResource(
-                creditCardService.updateCreditCard(userId, creditCardId, creditCard));
+                creditCardService.updateCreditCard(creditCardId, creditCard));
     }
 
-    @DeleteMapping("/users/{userId}/creditcards/{creditCardId}")
-    public ResponseEntity<?> deleteCreditCard(@PathVariable (value = "userId") Long userId,
-                                              @PathVariable Long creditCardId) {
-        return creditCardService.deleteCreditCard(userId, creditCardId);
+    @DeleteMapping("/creditcards/{creditCardId}")
+    public ResponseEntity<?> deleteCreditCard(@PathVariable Long creditCardId) {
+        return creditCardService.deleteCreditCard(creditCardId);
     }
 
     private CreditCard convertToEntity(SaveCreditCardResource resource) {

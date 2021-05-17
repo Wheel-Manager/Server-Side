@@ -46,14 +46,14 @@ public class UserAddressImpl implements UserAddressService {
     }
 
     @Override
-    public UserAddress updateUserAddresses(Long userId, Long addressId, Long userAddressId, UserAddress userAddressRequest) {
+    public UserAddress updateUserAddresses(Long userAddressId, UserAddress userAddressRequest) {
        UserAddress userAddress = userAddressRepository.findById(userAddressId)
                .orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id",userAddressId));
        return  userAddressRepository.save(userAddress.setSelected(userAddressRequest.isSelected()));
     }
 
     @Override
-    public ResponseEntity<?> deleteUserAddresses(Long userId, Long addressId, Long userAddressId) {
+    public ResponseEntity<?> deleteUserAddresses(Long userAddressId) {
         UserAddress userAddress = userAddressRepository.findById(userAddressId)
                 .orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id",userAddressId));
         userAddressRepository.delete(userAddress);

@@ -49,8 +49,8 @@ public class ReservationController {
     }
 
     @PutMapping("/reservations/{reservationId}")
-    public ReservationResource updateReservation(@RequestParam(name = "userId") Long userId, @RequestParam(name = "vehicleId") Long vehicleId, @PathVariable(value="reservationId") Long reservationId,@Valid @RequestBody SaveReservationResource resource) {
-        return convertToResource(reservationService.updateReservation(userId,vehicleId,reservationId,convertToEntity(resource)));
+    public ReservationResource updateReservation(@PathVariable(value="reservationId") Long reservationId,@Valid @RequestBody SaveReservationResource resource) {
+        return convertToResource(reservationService.updateReservation(reservationId,convertToEntity(resource)));
     }
 
     @DeleteMapping("/reservations/{reservationId}")

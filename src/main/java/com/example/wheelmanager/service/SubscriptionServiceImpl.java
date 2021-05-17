@@ -41,10 +41,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
-    public Subscription updateSubscription(Long userId,
-                                           Long subscriptionId, Subscription subscriptionRequest) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User" + "Id" + userId);
+    public Subscription updateSubscription(Long subscriptionId, Subscription subscriptionRequest) {
 
         Subscription subscription = subscriptionRepository.findById(subscriptionId)
                 .orElseThrow(()->new ResourceNotFoundException(
@@ -55,10 +52,10 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
-    public ResponseEntity<?> deleteSubscription(Long userId, Long subscriptionId) {
-        return subscriptionRepository.findByIdAndUserId(subscriptionId, userId).map(subscription -> {
+    public ResponseEntity<?> deleteSubscription(Long subscriptionId) {
+        return subscriptionRepository.findById(subscriptionId).map(subscription -> {
             subscriptionRepository.delete(subscription);
             return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Message not found with Id " + subscriptionId + " and UserId " + userId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Message not found with Id " + subscriptionId));
     }
 }

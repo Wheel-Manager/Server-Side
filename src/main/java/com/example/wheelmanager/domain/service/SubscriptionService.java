@@ -9,6 +9,6 @@ public interface SubscriptionService {
     Page<Subscription> getAllSubscriptions(Pageable pageable);
     Subscription getSubscriptionById(Long subscriptionId);
     Subscription createSubscription(Long userId, Subscription subscription);
-    Subscription updateSubscription(Long userId, Long subscriptionId, Subscription messageRequest);
-    ResponseEntity<?> deleteSubscription(Long userId, Long subscriptionId);
+    Subscription updateSubscription(Long subscriptionId, Subscription messageRequest);
+    ResponseEntity<?> deleteSubscription(Long subscriptionId);
 }
