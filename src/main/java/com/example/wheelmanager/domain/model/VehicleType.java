@@ -1,9 +1,12 @@
 package com.example.wheelmanager.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "vehicle_types")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class VehicleType extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

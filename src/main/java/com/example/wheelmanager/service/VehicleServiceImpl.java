@@ -58,7 +58,8 @@ public class VehicleServiceImpl implements VehicleService {
     public Vehicle updateVehicle(Long vehicleId, Vehicle vehicleRequest) {
         Vehicle vehicle = vehicleRepository.findById(vehicleId)
                 .orElseThrow(() -> new ResourceNotFoundException("Vehicle", "Id",vehicleId));
-        return vehicleRepository.save(vehicle.setVehicleName(vehicleRequest.getVehicleName()));
+        return vehicleRepository.save(vehicle.setVehicleName(vehicleRequest.getVehicleName()).setImageUrl(vehicleRequest.getImageUrl())
+                .setCalification(vehicleRequest.getCalification()).setDescription(vehicleRequest.getDescription()));
     }
 
     @Override

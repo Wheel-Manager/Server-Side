@@ -1,6 +1,7 @@
 package com.example.wheelmanager.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "vehicles")
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Vehicle extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +54,6 @@ public class Vehicle extends AuditModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "vehicle_type_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private VehicleType vehicleType;
 
 
