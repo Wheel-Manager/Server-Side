@@ -1,9 +1,11 @@
 package com.example.wheelmanager.controller;
 
 import com.example.wheelmanager.domain.model.Reservation;
+import com.example.wheelmanager.domain.model.UserAddress;
 import com.example.wheelmanager.domain.service.ReservationService;
 import com.example.wheelmanager.resource.ReservationResource;
 import com.example.wheelmanager.resource.SaveReservationResource;
+import com.example.wheelmanager.resource.UserAddressResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +30,17 @@ public class ReservationController {
     @Autowired
     private ReservationService reservationService;
 
-    @GetMapping("/reservations/{user_id}")
-    public Page<ReservationResource> getAllReservationByUserId(@PathVariable(name = "userId") Long userId, Pageable pageable){
-        Page<Reservation> reservationPage=reservationService.getAllReservationsByUserId(userId,pageable);
+    @GetMapping("/reservations")
+    public Page<ReservationResource> getAllReservations(Pageable pageable){
+        Page<Reservation> reservationPage = reservationService.getAllReservations(pageable);
         List<ReservationResource> resources=reservationPage.getContent().stream()
                 .map(this::convertToResource).collect(Collectors.toList());
         return new PageImpl<>(resources,pageable,resources.size());
     }
 
-    @GetMapping("/reservations/{vehicleId}")
-    public Page<ReservationResource> getAllReservationsByVehicleId(@PathVariable(name = "vehicleId") Long vehicleId, Pageable pageable){
-        Page<Reservation> reservationPage=reservationService.getAllReservationsByVehicleId(vehicleId,pageable);
-        List<ReservationResource> resources=reservationPage.getContent().stream()
-                .map(this::convertToResource).collect(Collectors.toList());
-        return new PageImpl<>(resources,pageable,resources.size());
+    @GetMapping("/reservations/{reservationId}")
+    public ReservationResource getReservationById(@PathVariable(value = "reservationId")Long reservationId){
+        return convertToResource(reservationService.getReservationsById(reservationId));
     }
 
     @PostMapping("/reservations")
@@ -55,8 +54,8 @@ public class ReservationController {
     }
 
     @DeleteMapping("/reservations/{reservationId}")
-    public ResponseEntity<?> deleteReservation(@RequestParam(name = "userId") Long userId, @RequestParam(name = "vehicleId") Long vehicleId, @PathVariable(value="reservationId") Long reservationId){
-        return reservationService.deleteReservation(userId,vehicleId,reservationId);
+    public ResponseEntity<?> deleteReservation(@PathVariable(value="reservationId") Long reservationId){
+        return reservationService.deleteReservation(reservationId);
     }
 
     private Reservation convertToEntity(SaveReservationResource resource){

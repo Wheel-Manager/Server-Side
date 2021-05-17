@@ -24,27 +24,20 @@ public class ReservationServiceImpl implements ReservationService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
+
     @Override
-    public Page<Reservation> getAllReservationsByUserId(Long userId, Pageable pageable) {
-        return reservationRespository.getAllUserReservationsByUserId(userId,pageable);
+    public Page<Reservation> getAllReservations(Pageable pageable) {
+        return reservationRespository.findAll(pageable);
     }
 
     @Override
-    public Page<Reservation> getAllReservationsByVehicleId(Long vehicleId, Pageable pageable) {
-        return reservationRespository.getAllUserReservationsByVehicleId(vehicleId,pageable);
-    }
-
-    @Override
-    public Reservation getReservationsByIdByUserIdAndAddressId(Long userId, Long vehicleId, Long reservationId) {
-        return reservationRespository.findByIdAndUserIdAndVehicleId(reservationId,userId,vehicleId)
-                .orElseThrow(()->new ResourceNotFoundException(
-                        "Reservation not found with Id"+reservationId
-                                +"and UserId"+userId+"and VehicleId"+vehicleId));
+    public Reservation getReservationsById(Long reservationId) {
+        return reservationRespository.findById(reservationId).orElseThrow(() -> new ResourceNotFoundException("Reservation", "Id",reservationId));
     }
 
     @Override
     public Reservation createReservation(Long userId, Long vehicleId, Reservation reservation) {
-        return userRepository.findById(userId).map(user->{
+        return userRepository.findById(userId).map(user -> {
             reservation.setUser(user);
             return vehicleRepository.findById(vehicleId).map(vehicle -> {
                 reservation.setVehicle(vehicle);
@@ -55,14 +48,8 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Reservation updateReservation(Long userId, Long vehicleId, Long reservationId, Reservation reservationRequest) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User","Id",userId);
-        if(!vehicleRepository.existsById(vehicleId))
-            throw new ResourceNotFoundException("Vehicle","Id",vehicleId);
         return reservationRespository.findById(reservationId).map(reservation-> {
-            reservation.setVehicle(reservationRequest.getVehicle())
-                    .setUser(reservationRequest.getUser())
-                    .setEndDate(reservationRequest.getEndDate())
+            reservation.setEndDate(reservationRequest.getEndDate())
                     .setStartDate(reservationRequest.getStartDate())
                     .setPrice(reservationRequest.getPrice());
             return reservationRespository.save(reservation);
@@ -70,11 +57,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public ResponseEntity<?> deleteReservation(Long userId, Long vehicleId, Long reservationId) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User","Id",userId);
-        if(!vehicleRepository.existsById(vehicleId))
-            throw new ResourceNotFoundException("Vehicle","Id",vehicleId);
+    public ResponseEntity<?> deleteReservation(Long reservationId) {
         return reservationRespository.findById(reservationId).map(reservation-> {
             reservationRespository.delete(reservation);
             return ResponseEntity.ok().build();
