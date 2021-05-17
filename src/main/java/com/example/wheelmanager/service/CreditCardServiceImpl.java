@@ -41,9 +41,7 @@ public class CreditCardServiceImpl implements CreditCardService {
     }
 
     @Override
-    public CreditCard updateCreditCard(Long userId, Long creditCardId, CreditCard creditCardRequest) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User" + "Id" + userId);
+    public CreditCard updateCreditCard(Long creditCardId, CreditCard creditCardRequest) {
 
         CreditCard creditCard = creditCardRepository.findById(creditCardId)
                 .orElseThrow(() -> new ResourceNotFoundException(
@@ -54,11 +52,11 @@ public class CreditCardServiceImpl implements CreditCardService {
     }
 
     @Override
-    public ResponseEntity<?> deleteCreditCard(Long userId, Long creditCardId) {
-        return creditCardRepository.findByIdAndUserId(creditCardId, userId).map(creditCard -> {
+    public ResponseEntity<?> deleteCreditCard(Long creditCardId) {
+        return creditCardRepository.findById(creditCardId).map(creditCard -> {
             creditCardRepository.delete(creditCard);
             return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Message not found with Id " + creditCardId + " and UserId " + userId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Message not found with Id " + creditCardId));
     }
 
 }

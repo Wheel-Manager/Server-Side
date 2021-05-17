@@ -51,13 +51,13 @@ public class UserAddressController {
     }
 
     @PutMapping("/userAddress/{userAddressId}")
-    public UserAddressResource updateUserAddresses(@RequestParam(name = "userId") Long userId, @RequestParam(name = "addressId") Long addressId, @PathVariable(value="userAddressId") Long userAddressId,@Valid @RequestBody SaveUserAddressResource resource) {
-        return convertToResource(userAddressService.updateUserAddresses(userId,addressId,userAddressId,convertToEntity(resource)));
+    public UserAddressResource updateUserAddresses(@PathVariable(value="userAddressId") Long userAddressId,@Valid @RequestBody SaveUserAddressResource resource) {
+        return convertToResource(userAddressService.updateUserAddresses(userAddressId,convertToEntity(resource)));
     }
 
     @DeleteMapping("/userAddress/{userAddressId}")
-    public ResponseEntity<?> deleteUserAddresses(@RequestParam(name = "userId") Long userId, @RequestParam(name = "addressId") Long addressId, @PathVariable(value="userAddressId") Long userAddressId){
-        return userAddressService.deleteUserAddresses(userId,addressId,userAddressId);
+    public ResponseEntity<?> deleteUserAddresses(@PathVariable(value="userAddressId") Long userAddressId){
+        return userAddressService.deleteUserAddresses(userAddressId);
     }
 
     private UserAddress convertToEntity(SaveUserAddressResource resource){

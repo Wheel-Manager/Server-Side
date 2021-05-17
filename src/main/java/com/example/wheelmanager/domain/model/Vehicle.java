@@ -18,7 +18,6 @@ public class Vehicle extends AuditModel {
     private Long id;
 
     @NotNull
-    @NaturalId
     @Column(name = "vehicle_name", length = 100)
     private String vehicleName;
 

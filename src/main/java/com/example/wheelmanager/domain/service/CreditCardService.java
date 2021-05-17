@@ -9,6 +9,6 @@ public interface CreditCardService {
     Page<CreditCard> getAllCards(Pageable pageable);
     CreditCard getCreditCardById(Long creditCardId);
     CreditCard createCreditCard(Long userId, CreditCard creditCard);
-    CreditCard updateCreditCard(Long userId, Long creditCardId, CreditCard messageRequest);
-    ResponseEntity<?> deleteCreditCard(Long userId, Long creditCardId);
+    CreditCard updateCreditCard(Long creditCardId, CreditCard messageRequest);
+    ResponseEntity<?> deleteCreditCard(Long creditCardId);
 }

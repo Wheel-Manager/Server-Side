@@ -8,7 +8,6 @@ import javax.validation.constraints.Size;
 
 public class SaveVehicleResource {
     @NotNull
-    @NaturalId
     @Size(max = 100)
     private String vehicleName;
 

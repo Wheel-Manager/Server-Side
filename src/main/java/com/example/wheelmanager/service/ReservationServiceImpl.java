@@ -47,7 +47,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Reservation updateReservation(Long userId, Long vehicleId, Long reservationId, Reservation reservationRequest) {
+    public Reservation updateReservation(Long reservationId, Reservation reservationRequest) {
         return reservationRespository.findById(reservationId).map(reservation-> {
             reservation.setEndDate(reservationRequest.getEndDate())
                     .setStartDate(reservationRequest.getStartDate())
