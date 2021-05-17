@@ -13,7 +13,7 @@ import java.util.Date;
 public class SaveOfferResource {
     @NotNull
     @Size(max = 50)
-    private String name;
+    private String offerName;
 
     @NotNull
     @Lob
@@ -24,17 +24,68 @@ public class SaveOfferResource {
     private String imageUrl;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "start_date", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     @CreatedDate
     private Date startDate;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "end_date", nullable = false, updatable = false)
-    @CreatedDate
+    @Column(nullable = false, updatable = false)
     private Date endDate;
 
     @NotNull
     private Double offerPrice;
 
+    public String getOfferName() {
+        return offerName;
+    }
 
+    public SaveOfferResource setName(String offerName) {
+        this.offerName = offerName;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public SaveOfferResource setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public SaveOfferResource setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public SaveOfferResource setStartDate(Date startDate) {
+        this.startDate = startDate;
+        return this;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public SaveOfferResource setEndDate(Date endDate) {
+        this.endDate = endDate;
+        return this;
+    }
+
+    public Double getOfferPrice() {
+        return offerPrice;
+    }
+
+    public SaveOfferResource setOfferPrice(Double offerPrice) {
+        this.offerPrice = offerPrice;
+        return this;
+    }
 }

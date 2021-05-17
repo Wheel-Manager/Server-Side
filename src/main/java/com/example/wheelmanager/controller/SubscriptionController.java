@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.SaveSubscriptionResource;
 import com.example.wheelmanager.resource.SubscriptionResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,7 @@ public class SubscriptionController {
     private ModelMapper mapper;
 
     @GetMapping("/subscriptions")
-    public Page<SubscriptionResource> getAllSubscriptions(Pageable pageable){
+    public Page<SubscriptionResource> getAllSubscriptions(@ParameterObject Pageable pageable){
         Page<Subscription> subscriptionPage = subscriptionService.getAllSubscriptions(pageable);
         List<SubscriptionResource> resources = subscriptionPage.getContent()
                 .stream().map(this::convertToResource)
@@ -42,8 +43,8 @@ public class SubscriptionController {
         return convertToResource(subscriptionService.getSubscriptionById(subscriptionId));
     }
 
-    @PostMapping("/users/{userId}/subscriptions")
-    public SubscriptionResource createSubscription(@PathVariable(value = "userId") Long userId,
+    @PostMapping("/subscriptions")
+    public SubscriptionResource createSubscription(@RequestParam(value = "userId") Long userId,
                                                    @Valid @RequestBody SaveSubscriptionResource resource){
         Subscription subscription = convertToEntity(resource);
         return  convertToResource(subscriptionService.createSubscription(userId, subscription));
@@ -51,7 +52,7 @@ public class SubscriptionController {
 
     @PutMapping("/users/{userId}/subscriptions/{subscriptionId}")
     public SubscriptionResource updateSubscription(@PathVariable (value = "userId") Long userId,
-                                                   @PathVariable Long subscriptionId, @Valid @RequestBody SaveSubscriptionResource resource){
+                                                   @PathVariable (value = "subscriptionId") Long subscriptionId, @Valid @RequestBody SaveSubscriptionResource resource){
         Subscription subscription = convertToEntity(resource);
         return  convertToResource(subscriptionService.updateSubscription(userId, subscriptionId,subscription));
     }

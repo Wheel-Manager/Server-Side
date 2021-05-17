@@ -15,14 +15,15 @@ public class Offer extends AuditModel {
     private Long id;
 
     @NotNull
-    @Size(max = 50)
-    private String name;
+    @Column(name = "offer_name",length = 50)
+    private String offerName;
 
     @NotNull
     @Lob
     private String description;
 
     @NotNull
+    @Column(name = "image_url")
     @Lob
     private String imageUrl;
 
@@ -49,12 +50,12 @@ public class Offer extends AuditModel {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getOfferName() {
+        return offerName;
     }
 
-    public Offer setName(String name) {
-        this.name = name;
+    public Offer setOfferName(String offerName) {
+        this.offerName = offerName;
         return this;
     }
 

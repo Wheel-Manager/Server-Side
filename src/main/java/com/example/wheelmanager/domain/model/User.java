@@ -1,5 +1,7 @@
 package com.example.wheelmanager.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User extends AuditModel {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -43,9 +46,6 @@ public class User extends AuditModel {
 
     @Column(name = "birth_day",nullable = false)
     private Date birthDay;
-
-    /*@OneToMany(mappedBy = "users")
-    private Set<UserAddress> userAddresses=new HashSet<>();*/
 
     public Long getId() {
         return id;
@@ -136,13 +136,4 @@ public class User extends AuditModel {
         this.birthDay = birthDay;
         return this;
     }
-
-    /*public Set<UserAddress> getUserAddresses() {
-        return userAddresses;
-    }
-
-    public User setUserAddresses(Set<UserAddress> userAddresses) {
-        this.userAddresses = userAddresses;
-        return this;
-    }*/
 }

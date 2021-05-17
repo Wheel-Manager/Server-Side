@@ -9,7 +9,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user_address")
-public class UserAddress{
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class UserAddress extends AuditModel{
     @Id
     @Column(name = "user_address_id")
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -20,13 +21,11 @@ public class UserAddress{
 
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "user_id",nullable = false)
-    /*@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})*/
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "address_id",nullable = false)
-    /*@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})*/
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
 

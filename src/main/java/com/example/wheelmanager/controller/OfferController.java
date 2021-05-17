@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.OfferResource;
 import com.example.wheelmanager.resource.SaveOfferResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -28,7 +29,7 @@ public class OfferController {
     private ModelMapper mapper;
 
     @GetMapping("/offer")
-    public Page<OfferResource> getAllOffers(Pageable pageable) {
+    public Page<OfferResource> getAllOffers(@ParameterObject Pageable pageable) {
         Page<Offer> offerPage=offerService.getAllOffers(pageable);
         List<OfferResource> resources = offerPage.getContent().stream()
                 .map(this::convertToResource)

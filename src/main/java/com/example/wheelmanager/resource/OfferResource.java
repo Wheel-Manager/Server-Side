@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class OfferResource extends AuditModel {
     private Long id;
-    private String name;
+    private String offerName;
     private String description;
     private String imageUrl;
     private Date startDate;
@@ -22,12 +22,12 @@ public class OfferResource extends AuditModel {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getOfferName() {
+        return offerName;
     }
 
-    public OfferResource setName(String name) {
-        this.name = name;
+    public OfferResource setOfferName(String offerName) {
+        this.offerName = offerName;
         return this;
     }
 

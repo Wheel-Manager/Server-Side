@@ -4,13 +4,10 @@ import com.example.wheelmanager.domain.model.*;
 public class VehicleResource extends AuditModel{
 
     private Long id;
-
     private String vehicleName;
-
     private String imageUrl;
     private Integer calification;
     private String description;
-
     private User user;
     private Brand brand;
     private Status status;

@@ -1,8 +1,10 @@
 package com.example.wheelmanager.resource;
 
-import javax.persistence.*;
+
+import javax.validation.constraints.NotNull;
 
 public class SaveUserAddressResource {
+    @NotNull
     private boolean selected;
 
     public boolean isSelected() {
