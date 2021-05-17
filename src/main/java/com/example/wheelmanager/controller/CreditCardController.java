@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.CreditCardResource;
 import com.example.wheelmanager.resource.SaveCreditCardResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -28,7 +29,7 @@ public class CreditCardController {
     private ModelMapper mapper;
 
     @GetMapping("/creditcards")
-    public Page<CreditCardResource> getAllCards(Pageable pageable) {
+    public Page<CreditCardResource> getAllCards(@ParameterObject Pageable pageable) {
 
         Page<CreditCard> creditCardsPage = creditCardService.getAllCards(pageable);
         List<CreditCardResource> resources = creditCardsPage.getContent()

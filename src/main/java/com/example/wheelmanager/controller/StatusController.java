@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.SaveStatusResource;
 import com.example.wheelmanager.resource.StatusResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -28,7 +29,7 @@ public class StatusController {
     private ModelMapper mapper;
 
     @GetMapping("/statuses")
-    public Page<StatusResource> getAllStatuses(Pageable pageable) {
+    public Page<StatusResource> getAllStatuses(@ParameterObject Pageable pageable) {
 
         Page<Status> statusPage = statusService.getAllStatuses(pageable);
         List<StatusResource> resources = statusPage.getContent()

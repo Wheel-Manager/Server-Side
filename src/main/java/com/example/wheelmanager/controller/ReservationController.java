@@ -8,6 +8,7 @@ import com.example.wheelmanager.resource.SaveReservationResource;
 import com.example.wheelmanager.resource.UserAddressResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -31,7 +32,7 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/reservations")
-    public Page<ReservationResource> getAllReservations(Pageable pageable){
+    public Page<ReservationResource> getAllReservations(@ParameterObject Pageable pageable){
         Page<Reservation> reservationPage = reservationService.getAllReservations(pageable);
         List<ReservationResource> resources=reservationPage.getContent().stream()
                 .map(this::convertToResource).collect(Collectors.toList());

@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.SaveUserAddressResource;
 import com.example.wheelmanager.resource.UserAddressResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,7 @@ public class UserAddressController {
     private UserAddressService userAddressService;
 
     @GetMapping("/userAddress")
-    public Page<UserAddressResource> getAllUserAddresses(Pageable pageable){
+    public Page<UserAddressResource> getAllUserAddresses(@ParameterObject Pageable pageable){
         Page<UserAddress> userAddressResourcePage = userAddressService.getAllUserAddresses(pageable);
         List<UserAddressResource> resources=userAddressResourcePage.getContent().stream()
                 .map(this::convertToResource).collect(Collectors.toList());

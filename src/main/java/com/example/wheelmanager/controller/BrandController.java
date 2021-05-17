@@ -6,6 +6,7 @@ import com.example.wheelmanager.resource.BrandResource;
 import com.example.wheelmanager.resource.SaveBrandResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,7 @@ public class BrandController {
     private ModelMapper mapper;
 
     @GetMapping(value = "/brands")
-    public Page<BrandResource> getAllBrands(Pageable pageable){
+    public Page<BrandResource> getAllBrands(@ParameterObject Pageable pageable){
         Page<Brand> brandsPage = brandService.getAllBrands(pageable);
         List<BrandResource> resources = brandsPage.getContent()
                 .stream().map(this::convertToResource)
