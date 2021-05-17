@@ -38,7 +38,7 @@ public class OfferServiceImpl implements OfferService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Offer", "Id", offerId));
         return offerRepository.save(
-                offer.setName(offerRequest.getName())
+                offer.setOfferName(offerRequest.getOfferName())
                         .setDescription(offerRequest.getDescription())
                         .setImageUrl(offerRequest.getImageUrl())
                         .setOfferPrice(offerRequest.getOfferPrice()));

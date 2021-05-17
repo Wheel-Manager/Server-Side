@@ -13,7 +13,7 @@ import java.util.Date;
 public class SaveOfferResource {
     @NotNull
     @Size(max = 50)
-    private String name;
+    private String offerName;
 
     @NotNull
     @Lob
@@ -35,12 +35,12 @@ public class SaveOfferResource {
     @NotNull
     private Double offerPrice;
 
-    public String getName() {
-        return name;
+    public String getOfferName() {
+        return offerName;
     }
 
-    public SaveOfferResource setName(String name) {
-        this.name = name;
+    public SaveOfferResource setName(String offerName) {
+        this.offerName = offerName;
         return this;
     }
 

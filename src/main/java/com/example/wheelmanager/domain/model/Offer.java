@@ -16,7 +16,7 @@ public class Offer extends AuditModel {
 
     @NotNull
     @Column(name = "offer_name",length = 50)
-    private String name;
+    private String offerName;
 
     @NotNull
     @Lob
@@ -50,12 +50,12 @@ public class Offer extends AuditModel {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getOfferName() {
+        return offerName;
     }
 
-    public Offer setName(String name) {
-        this.name = name;
+    public Offer setOfferName(String offerName) {
+        this.offerName = offerName;
         return this;
     }
 

@@ -25,7 +25,7 @@ public class CommentServiceImpl implements CommentService {
     private VehicleRepository vehicleRepository;
 
 
-    @Override
+    /*@Override
     public Page<Comment> getAllCommentsByUserId(Long userId, Pageable pageable) {
         return commentRepository.getAllCommentsByUserId(userId,pageable);
     }
@@ -33,14 +33,31 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Page<Comment> getAllCommentsByVehicleId(Long vehicleId, Pageable pageable) {
         return commentRepository.getAllCommentsByVehicleId(vehicleId,pageable);
-    }
+    }*/
 
-    @Override
+
+    /*@Override
     public Comment getCommentsByIdByUserIdAndAddressId(Long userId, Long vehicleId, Long commentId) {
         return commentRepository.findByIdAndUserIdAndVehicleId(commentId,userId,vehicleId).
                 orElseThrow(()->new ResourceNotFoundException(
                         "Comment not found with Id"+commentId
                                 +"and UserId"+userId+"and VehicleId"+vehicleId));
+
+    }*/
+
+    @Override
+    public Page<Comment> getAllComments(Pageable pageable)
+    {
+        return commentRepository.findAll(pageable);
+    }
+
+
+
+    @Override
+    public Comment getCommentById(Long commentId){
+        return commentRepository.findById(commentId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Comment", "Id", commentId));
 
     }
 
@@ -56,26 +73,16 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment updateComment(Long userId, Long vehicleId, Long commentId, Comment commentRequest) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User","Id",userId);
-        if(!vehicleRepository.existsById(vehicleId))
-            throw new ResourceNotFoundException("Vehicle","Id",vehicleId);
+    public Comment updateComment(Long commentId, Comment commentRequest) {
         return commentRepository.findById(commentId).map(comment-> {
-            comment.setVehicle(commentRequest.getVehicle())
-                    .setUser(commentRequest.getUser())
-                    .setPublicationDate(commentRequest.getPublicationDate())
+            comment.setPublicationDate(commentRequest.getPublicationDate())
                     .setContent(commentRequest.getContent());
             return commentRepository.save(comment);
         }).orElseThrow(()->new ResourceNotFoundException("Comment","Id",commentId));
     }
 
     @Override
-    public ResponseEntity<?> deleteComment(Long userId, Long vehicleId, Long commentId) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User","Id",userId);
-        if(!vehicleRepository.existsById(vehicleId))
-            throw new ResourceNotFoundException("Vehicle","Id",vehicleId);
+    public ResponseEntity<?> deleteComment( Long commentId) {
         return commentRepository.findById(commentId).map(comment-> {
             commentRepository.delete(comment);
             return ResponseEntity.ok().build();

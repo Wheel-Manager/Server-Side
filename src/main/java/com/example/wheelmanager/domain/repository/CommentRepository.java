@@ -8,12 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
 public interface CommentRepository extends JpaRepository<Comment,Long> {
 
-    Page<Comment> getAllCommentsByUserId(Long userId, Pageable pageable);
-    Page<Comment> getAllCommentsByVehicleId(Long vehicleId, Pageable pageable);
-    Optional<Comment> findByIdAndUserIdAndVehicleId(Long id, Long userId, Long vehicleId);
-    Optional<Comment> findByUserIdAndVehicleId(Long userId, Long vehicleId);
 
 }

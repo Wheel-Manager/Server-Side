@@ -28,20 +28,20 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/comments/{user_id}")
-    public Page<CommentResource> getAllCommentsByUserId(@PathVariable(name = "user_id") Long userId, Pageable pageable) {
-        Page<Comment> reservationPage = commentService.getAllCommentsByUserId(userId, pageable);
-        List<CommentResource> resources = reservationPage.getContent().stream()
-                .map(this::convertToResource).collect(Collectors.toList());
+
+    @GetMapping("/comments")
+    public Page<CommentResource> getAllComments(Pageable pageable) {
+        Page<Comment> commentPage = commentService.getAllComments(pageable);
+        List<CommentResource> resources = commentPage.getContent()
+                .stream().map(this::convertToResource)
+                .collect(Collectors.toList());
         return new PageImpl<>(resources, pageable, resources.size());
     }
 
-    @GetMapping("/comments/{vehicle_id}")
-    public Page<CommentResource> getAllCommentsByVehicleId(@PathVariable(name = "vehicle_Id") Long vehicleId, Pageable pageable) {
-        Page<Comment> reservationPage = commentService.getAllCommentsByVehicleId(vehicleId, pageable);
-        List<CommentResource> resources = reservationPage.getContent().stream()
-                .map(this::convertToResource).collect(Collectors.toList());
-        return new PageImpl<>(resources, pageable, resources.size());
+
+    @GetMapping("/comments/{commentId}")
+    public CommentResource getCommentById(@PathVariable(value = "commentId") Long commentId) {
+        return convertToResource(commentService.getCommentById(commentId));
     }
 
     @PostMapping("/comments")
@@ -49,15 +49,16 @@ public class CommentController {
         return convertToResource(commentService.createComment(userId, vehicleId, convertToEntity(resource)));
     }
 
-    @PutMapping("/comments/{comment_id}")
-    public CommentResource updateComment(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "vehicle_id") Long vehicleId, @PathVariable(value = "comment_id") Long reservationId, @Valid @RequestBody SaveCommentResource resource) {
-        return convertToResource(commentService.updateComment(userId, vehicleId, reservationId, convertToEntity(resource)));
+    @PutMapping("/comments/{commentId}")
+    public CommentResource updateComment(@PathVariable(value = "commentId") Long commentId, @Valid @RequestBody SaveCommentResource resource) {
+        return convertToResource(commentService.updateComment(commentId, convertToEntity(resource)));
     }
 
-    @DeleteMapping("/comments/{comment_id}")
-    public ResponseEntity<?> deleteReservation(@RequestParam(name = "user_id") Long userId, @RequestParam(name = "vehicle_id") Long vehicleId, @PathVariable(value = "comment_id") Long commentId) {
-        return commentService.deleteComment(userId, vehicleId, commentId);
+    @DeleteMapping("/comments/{commentId}")
+    public ResponseEntity<?> deleteComment(@PathVariable(value = "commentId") Long commentId) {
+        return commentService.deleteComment(commentId);
     }
+
 
     private Comment convertToEntity(SaveCommentResource resource) {
         return mapper.map(resource, Comment.class);
