@@ -73,26 +73,16 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment updateComment(Long userId, Long vehicleId, Long commentId, Comment commentRequest) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User","Id",userId);
-        if(!vehicleRepository.existsById(vehicleId))
-            throw new ResourceNotFoundException("Vehicle","Id",vehicleId);
+    public Comment updateComment(Long commentId, Comment commentRequest) {
         return commentRepository.findById(commentId).map(comment-> {
-            comment.setVehicle(commentRequest.getVehicle())
-                    .setUser(commentRequest.getUser())
-                    .setPublicationDate(commentRequest.getPublicationDate())
+            comment.setPublicationDate(commentRequest.getPublicationDate())
                     .setContent(commentRequest.getContent());
             return commentRepository.save(comment);
         }).orElseThrow(()->new ResourceNotFoundException("Comment","Id",commentId));
     }
 
     @Override
-    public ResponseEntity<?> deleteComment(Long userId, Long vehicleId, Long commentId) {
-        if(!userRepository.existsById(userId))
-            throw new ResourceNotFoundException("User","Id",userId);
-        if(!vehicleRepository.existsById(vehicleId))
-            throw new ResourceNotFoundException("Vehicle","Id",vehicleId);
+    public ResponseEntity<?> deleteComment( Long commentId) {
         return commentRepository.findById(commentId).map(comment-> {
             commentRepository.delete(comment);
             return ResponseEntity.ok().build();

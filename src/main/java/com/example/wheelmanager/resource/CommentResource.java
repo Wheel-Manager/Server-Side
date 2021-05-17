@@ -10,8 +10,8 @@ public class CommentResource extends AuditModel {
     private Long id;
     private String content;
     private Date publicationDate;
-    private UserResource user;
-    private VehicleResource vehicle;
+    private User user;
+    private Vehicle vehicle;
 
     public Long getId() {
         return id;
@@ -40,20 +40,20 @@ public class CommentResource extends AuditModel {
         return this;
     }
 
-    public UserResource getUser() {
+    public User getUser() {
         return user;
     }
 
-    public CommentResource setUser(UserResource user) {
+    public CommentResource setUser(User user) {
         this.user = user;
         return this;
     }
 
-    public VehicleResource getVehicle() {
+    public Vehicle getVehicle() {
         return vehicle;
     }
 
-    public CommentResource setVehicle(VehicleResource vehicle) {
+    public CommentResource setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
         return this;
     }

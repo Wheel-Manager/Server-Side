@@ -14,8 +14,6 @@ import java.util.Date;
 @Table(name = "comments")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Comment extends AuditModel{
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

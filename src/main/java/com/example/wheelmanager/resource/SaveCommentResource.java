@@ -1,5 +1,7 @@
 package com.example.wheelmanager.resource;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -8,6 +10,7 @@ public class SaveCommentResource {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
+    @CreatedDate
     private Date publicationDate;
 
     @NotNull
