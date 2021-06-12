@@ -1,8 +1,6 @@
 package com.example.wheelmanager.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -25,8 +23,8 @@ public class Vehicle extends AuditModel {
     @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
-    @Column(name = "calification", nullable = false)
-    private Integer calification;
+    @Column(name = "score", nullable = false)
+    private Integer score;
 
     @Lob
     @Column(name = "description", nullable = false)
@@ -80,12 +78,12 @@ public class Vehicle extends AuditModel {
         return this;
     }
 
-    public Integer getCalification() {
-        return calification;
+    public Integer getScore() {
+        return score;
     }
 
-    public Vehicle setCalification(Integer calification) {
-        this.calification = calification;
+    public Vehicle setScore(Integer score) {
+        this.score = score;
         return this;
     }
 
@@ -97,6 +95,7 @@ public class Vehicle extends AuditModel {
         this.description = description;
         return this;
     }
+
     public User getUser() {
         return user;
     }

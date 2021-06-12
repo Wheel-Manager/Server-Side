@@ -1,7 +1,6 @@
 package com.example.wheelmanager.domain.model;
 
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,16 +15,16 @@ public class Brand extends AuditModel {
     private Long id;
 
     @NotNull
-    @Column(name = "brand_name",length = 100)
+    @Column(name = "brand_name", length = 100)
     private String brandName;
+
+    public Long getId() {
+        return id;
+    }
 
     public Brand setId(Long id) {
         this.id = id;
         return this;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getBrandName() {

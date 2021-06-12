@@ -1,16 +1,24 @@
 package com.example.wheelmanager.resource;
+
 import com.example.wheelmanager.domain.model.*;
 
-public class VehicleResource extends AuditModel{
-
+public class VehicleResource extends AuditModel {
     private Long id;
+
     private String vehicleName;
+
     private String imageUrl;
-    private Integer calification;
+
+    private Integer score;
+
     private String description;
+
     private User user;
+
     private Brand brand;
+
     private Status status;
+
     private VehicleType vehicleType;
 
     public Long getId() {
@@ -40,12 +48,12 @@ public class VehicleResource extends AuditModel{
         return this;
     }
 
-    public Integer getCalification() {
-        return calification;
+    public Integer getScore() {
+        return score;
     }
 
-    public VehicleResource setCalification(Integer calification) {
-        this.calification = calification;
+    public VehicleResource setScore(Integer score) {
+        this.score = score;
         return this;
     }
 

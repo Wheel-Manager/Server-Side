@@ -5,7 +5,6 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -13,11 +12,11 @@ import java.util.Date;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Offer extends AuditModel {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Column(name = "offer_name",length = 50)
+    @Column(name = "offer_name", length = 50)
     private String offerName;
 
     @NotNull
@@ -30,12 +29,12 @@ public class Offer extends AuditModel {
     private String imageUrl;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "start_date", nullable = false, updatable = false)
+    @Column(name = "start_date", nullable = false, updatable = false)
     @CreatedDate
     private Date startDate;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "end_date", nullable = false, updatable = false)
+    @Column(name = "end_date", nullable = false, updatable = false)
     @CreatedDate
     private Date endDate;
 

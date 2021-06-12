@@ -9,26 +9,34 @@ public class SaveUserResource {
     @NotNull
     @Size(max = 50)
     private String userName;
+
     @NotNull
     @Size(max = 25)
     private String password;
+
     @NotNull
     @Size(max = 150)
     private String email;
+
     @NotNull
     @Size(max = 25)
     private String name;
+
     @NotNull
     @Size(max = 30)
     private String lastName;
+
     @NotNull
     @Lob
     private String imageUrl;
+
     @NotNull
     private Long dni;
+
     @NotNull
     @Size(max = 50)
     private String gender;
+
     @NotNull
     private Date birthDay;
 

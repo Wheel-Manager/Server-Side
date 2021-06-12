@@ -6,14 +6,14 @@ import javax.validation.constraints.Size;
 public class SaveStatusResource {
     @NotNull
     @Size(max = 100)
-    private String name;
+    private String statusName;
 
-    public String getName() {
-        return name;
+    public String getStatusName() {
+        return statusName;
     }
 
-    public SaveStatusResource setName(String name) {
-        this.name = name;
+    public SaveStatusResource setStatusName(String statusName) {
+        this.statusName = statusName;
         return this;
     }
 }

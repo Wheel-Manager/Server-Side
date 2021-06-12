@@ -19,13 +19,12 @@ public class CreditCardServiceImpl implements CreditCardService {
     private UserRepository userRepository;
 
     @Override
-    public Page<CreditCard> getAllCards(Pageable pageable)
-    {
+    public Page<CreditCard> getAllCards(Pageable pageable) {
         return creditCardRepository.findAll(pageable);
     }
 
     @Override
-    public CreditCard getCreditCardById(Long creditCardId){
+    public CreditCard getCreditCardById(Long creditCardId) {
         return creditCardRepository.findById(creditCardId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "CreditCard", "Id", creditCardId));
@@ -37,7 +36,7 @@ public class CreditCardServiceImpl implements CreditCardService {
         return userRepository.findById(userId).map(user -> {
             creditCard.setUser(user);
             return creditCardRepository.save(creditCard);
-        }).orElseThrow(() -> new ResourceNotFoundException( "User", "Id", userId));
+        }).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
     }
 
     @Override

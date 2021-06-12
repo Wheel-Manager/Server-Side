@@ -46,15 +46,13 @@ public class CommentServiceImpl implements CommentService {
     }*/
 
     @Override
-    public Page<Comment> getAllComments(Pageable pageable)
-    {
+    public Page<Comment> getAllComments(Pageable pageable) {
         return commentRepository.findAll(pageable);
     }
 
 
-
     @Override
-    public Comment getCommentById(Long commentId){
+    public Comment getCommentById(Long commentId) {
         return commentRepository.findById(commentId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Comment", "Id", commentId));
@@ -68,25 +66,25 @@ public class CommentServiceImpl implements CommentService {
             return vehicleRepository.findById(vehicleId).map(vehicle -> {
                 comment.setVehicle(vehicle);
                 return commentRepository.save(comment);
-            }).orElseThrow(()->new ResourceNotFoundException("Vehicle","Id",vehicleId));
-        }).orElseThrow(()->new ResourceNotFoundException("User","Id",userId));
+            }).orElseThrow(() -> new ResourceNotFoundException("Vehicle", "Id", vehicleId));
+        }).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
     }
 
     @Override
     public Comment updateComment(Long commentId, Comment commentRequest) {
-        return commentRepository.findById(commentId).map(comment-> {
+        return commentRepository.findById(commentId).map(comment -> {
             comment.setPublicationDate(commentRequest.getPublicationDate())
                     .setContent(commentRequest.getContent());
             return commentRepository.save(comment);
-        }).orElseThrow(()->new ResourceNotFoundException("Comment","Id",commentId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Comment", "Id", commentId));
     }
 
     @Override
-    public ResponseEntity<?> deleteComment( Long commentId) {
-        return commentRepository.findById(commentId).map(comment-> {
+    public ResponseEntity<?> deleteComment(Long commentId) {
+        return commentRepository.findById(commentId).map(comment -> {
             commentRepository.delete(comment);
             return ResponseEntity.ok().build();
-        }).orElseThrow(()->new ResourceNotFoundException("Comment","Id",commentId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Comment", "Id", commentId));
     }
 
 }

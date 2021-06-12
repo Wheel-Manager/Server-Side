@@ -3,15 +3,14 @@ package com.example.wheelmanager.resource;
 import com.example.wheelmanager.domain.model.Address;
 import com.example.wheelmanager.domain.model.AuditModel;
 import com.example.wheelmanager.domain.model.User;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import javax.persistence.*;
 
 public class UserAddressResource extends AuditModel {
     private Long id;
+
     private boolean selected;
+
     private User user;
+
     private Address address;
 
     public Long getId() {

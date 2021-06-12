@@ -2,7 +2,10 @@ package com.example.wheelmanager.resource;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Lob;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 

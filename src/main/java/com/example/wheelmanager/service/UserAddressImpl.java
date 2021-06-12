@@ -30,32 +30,32 @@ public class UserAddressImpl implements UserAddressService {
     }
 
     @Override
-    public UserAddress getUserAddressesById(Long userAddressId){
-        return userAddressRepository.findById(userAddressId).orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id",userAddressId));
+    public UserAddress getUserAddressesById(Long userAddressId) {
+        return userAddressRepository.findById(userAddressId).orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id", userAddressId));
     }
 
     @Override
     public UserAddress createUserAddresses(Long userId, Long addressId, UserAddress userAddress) {
-        return userRepository.findById(userId).map(user->{
+        return userRepository.findById(userId).map(user -> {
             userAddress.setUser(user);
             return addressRepository.findById(addressId).map(address -> {
                 userAddress.setAddress(address);
                 return userAddressRepository.save(userAddress);
-            }).orElseThrow(()->new ResourceNotFoundException("Address","Id", addressId));
-        }).orElseThrow(()->new ResourceNotFoundException("User","Id", userId));
+            }).orElseThrow(() -> new ResourceNotFoundException("Address", "Id", addressId));
+        }).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
     }
 
     @Override
     public UserAddress updateUserAddresses(Long userAddressId, UserAddress userAddressRequest) {
-       UserAddress userAddress = userAddressRepository.findById(userAddressId)
-               .orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id",userAddressId));
-       return  userAddressRepository.save(userAddress.setSelected(userAddressRequest.isSelected()));
+        UserAddress userAddress = userAddressRepository.findById(userAddressId)
+                .orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id", userAddressId));
+        return userAddressRepository.save(userAddress.setSelected(userAddressRequest.isSelected()));
     }
 
     @Override
     public ResponseEntity<?> deleteUserAddresses(Long userAddressId) {
         UserAddress userAddress = userAddressRepository.findById(userAddressId)
-                .orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id",userAddressId));
+                .orElseThrow(() -> new ResourceNotFoundException("UserAddress", "Id", userAddressId));
         userAddressRepository.delete(userAddress);
         return ResponseEntity.ok().build();
     }

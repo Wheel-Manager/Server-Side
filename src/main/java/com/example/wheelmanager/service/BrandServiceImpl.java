@@ -24,7 +24,7 @@ public class BrandServiceImpl implements BrandService {
     public Brand getBrandById(Long brandId) {
         return brandRepository.findById(brandId)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                "Brand","Id", brandId));
+                        "Brand", "Id", brandId));
     }
 
     @Override

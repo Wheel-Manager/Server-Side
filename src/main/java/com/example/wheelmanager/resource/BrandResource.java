@@ -4,6 +4,7 @@ import com.example.wheelmanager.domain.model.AuditModel;
 
 public class BrandResource extends AuditModel {
     private Long id;
+
     private String brandName;
 
     public Long getId() {

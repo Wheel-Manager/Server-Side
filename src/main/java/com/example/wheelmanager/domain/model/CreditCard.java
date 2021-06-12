@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name = "credit_cards")
 public class CreditCard extends AuditModel {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -21,7 +21,7 @@ public class CreditCard extends AuditModel {
     private String cardNumber;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "expiration_date", nullable = false, updatable = false)
+    @Column(name = "expiration_date", nullable = false, updatable = false)
     @CreatedDate
     private Date expirationDate;
 

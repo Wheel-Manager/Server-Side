@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface BrandService {
     Page<Brand> getAllBrands(Pageable pageable);
+
     Brand getBrandById(Long brandId);
+
     Brand createBrand(Brand brand);
+
     Brand updateBrand(Long brandId, Brand messageRequest);
+
     ResponseEntity<?> deleteBrand(Long brandId);
 }

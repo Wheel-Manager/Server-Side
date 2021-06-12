@@ -5,31 +5,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User extends AuditModel {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_name",nullable = false,length = 50)
+    @Column(name = "user_name", nullable = false, length = 50)
     private String userName;
 
-    @Column(name = "password",nullable = false,length = 25)
+    @Column(name = "password", nullable = false, length = 25)
     private String password;
 
-    @Column(name = "email",nullable = false,length = 150)
+    @Column(name = "email", nullable = false, length = 150)
     private String email;
 
-    @Column(name = "name",nullable = false,length = 25)
+    @Column(name = "name", nullable = false, length = 25)
     private String name;
 
-    @Column(name = "last_name",nullable = false,length = 30)
+    @Column(name = "last_name", nullable = false, length = 30)
     private String lastName;
 
     @NotNull
@@ -41,10 +38,10 @@ public class User extends AuditModel {
     private Long dni;
 
     @NotNull
-    @Column(name = "gender",nullable = false,length = 50)
+    @Column(name = "gender", nullable = false, length = 50)
     private String gender;
 
-    @Column(name = "birth_day",nullable = false)
+    @Column(name = "birth_day", nullable = false)
     private Date birthDay;
 
     public Long getId() {

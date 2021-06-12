@@ -23,7 +23,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 
     @Override
     public VehicleType getVehicleTypeById(Long vehicleTypeId) {
-        return vehicleTypeRepository.findById(vehicleTypeId).orElseThrow(() -> new ResourceNotFoundException("VehicleType", "Id",vehicleTypeId));
+        return vehicleTypeRepository.findById(vehicleTypeId).orElseThrow(() -> new ResourceNotFoundException("VehicleType", "Id", vehicleTypeId));
     }
 
     @Override
@@ -34,14 +34,14 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
     @Override
     public VehicleType updateVehicleType(Long vehicleTypeId, VehicleType vehicleTypeRequest) {
         VehicleType vehicleType = vehicleTypeRepository.findById(vehicleTypeId)
-                .orElseThrow(() -> new ResourceNotFoundException("VehicleType", "Id",vehicleTypeId));
+                .orElseThrow(() -> new ResourceNotFoundException("VehicleType", "Id", vehicleTypeId));
         return vehicleTypeRepository.save(vehicleType.setTypeName(vehicleTypeRequest.getTypeName()));
     }
 
     @Override
     public ResponseEntity<?> deleteVehicleType(Long vehicleTypeId) {
         VehicleType vehicleType = vehicleTypeRepository.findById(vehicleTypeId)
-                .orElseThrow(() -> new ResourceNotFoundException("VehicleType", "Id",vehicleTypeId));
+                .orElseThrow(() -> new ResourceNotFoundException("VehicleType", "Id", vehicleTypeId));
         vehicleTypeRepository.delete(vehicleType);
         return ResponseEntity.ok().build();
     }

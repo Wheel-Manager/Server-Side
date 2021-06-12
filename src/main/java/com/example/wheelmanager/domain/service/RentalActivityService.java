@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface RentalActivityService {
     Page<RentalActivity> getAllRentalActivities(Pageable pageable);
+
     RentalActivity getRentalActivitiesById(Long rentalActivityId);
-    RentalActivity createRentalActivities(Long reservationId,Long offerId,RentalActivity rentalActivity);
-    RentalActivity updateRentalActivities(Long rentalActivityId,RentalActivity messageRequest);
+
+    RentalActivity createRentalActivities(Long reservationId, Long offerId, RentalActivity rentalActivity);
+
+    RentalActivity updateRentalActivities(Long rentalActivityId, RentalActivity messageRequest);
+
     ResponseEntity<?> deleteRentalActivities(Long rentalActivityId);
 }

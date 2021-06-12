@@ -1,7 +1,6 @@
 package com.example.wheelmanager.service;
 
 import com.example.wheelmanager.domain.model.User;
-import com.example.wheelmanager.domain.repository.AddressRepository;
 import com.example.wheelmanager.domain.repository.UserRepository;
 import com.example.wheelmanager.domain.service.UserService;
 import com.example.wheelmanager.exception.ResourceNotFoundException;
@@ -18,13 +17,12 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public Page<User> getAllUsers(Pageable pageable)
-    {
+    public Page<User> getAllUsers(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
 
     @Override
-    public User getUserById(Long userId){
+    public User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "User", "Id", userId));
@@ -48,7 +46,7 @@ public class UserServiceImpl implements UserService {
                     .setGender(userRequest.getGender())
                     .setBirthDay(userRequest.getBirthDay());
             return userRepository.save(user);
-        }).orElseThrow(()->new ResourceNotFoundException("Tag","Id",userId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Tag", "Id", userId));
     }
 
     @Override

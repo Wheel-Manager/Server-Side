@@ -1,7 +1,5 @@
 package com.example.wheelmanager.resource;
 
-import org.hibernate.annotations.NaturalId;
-
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -16,7 +14,7 @@ public class SaveVehicleResource {
     private String imageUrl;
 
     @NotNull
-    private Integer calification;
+    private Integer score;
 
     @NotNull
     @Lob
@@ -41,12 +39,12 @@ public class SaveVehicleResource {
         return this;
     }
 
-    public Integer getCalification() {
-        return calification;
+    public Integer getScore() {
+        return score;
     }
 
-    public SaveVehicleResource setCalification(Integer calification) {
-        this.calification = calification;
+    public SaveVehicleResource setScore(Integer score) {
+        this.score = score;
         return this;
     }
 

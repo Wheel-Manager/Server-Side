@@ -10,22 +10,22 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "user_address")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class UserAddress extends AuditModel{
+public class UserAddress extends AuditModel {
     @Id
     @Column(name = "user_address_id")
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
     private boolean selected;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "user_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "address_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "address_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
 

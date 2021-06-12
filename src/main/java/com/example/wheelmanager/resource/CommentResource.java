@@ -8,9 +8,13 @@ import java.util.Date;
 
 public class CommentResource extends AuditModel {
     private Long id;
+
     private String content;
+
     private Date publicationDate;
+
     private User user;
+
     private Vehicle vehicle;
 
     public Long getId() {

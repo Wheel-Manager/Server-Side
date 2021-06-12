@@ -1,4 +1,5 @@
 package com.example.wheelmanager.domain.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -9,10 +10,10 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "rental_activities")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class RentalActivity extends AuditModel{
+public class RentalActivity extends AuditModel {
     @Id
     @Column(name = "rental_activity_id")
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -24,13 +25,13 @@ public class RentalActivity extends AuditModel{
     @NotNull
     private double insurancePrice;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "reservation_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "reservation_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Reservation reservation;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "offer_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "offer_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Offer offer;
 

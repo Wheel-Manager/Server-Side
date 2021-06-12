@@ -6,11 +6,17 @@ import java.util.Date;
 
 public class OfferResource extends AuditModel {
     private Long id;
+
     private String offerName;
+
     private String description;
+
     private String imageUrl;
+
     private Date startDate;
+
     private Date endDate;
+
     private Double offerPrice;
 
     public Long getId() {

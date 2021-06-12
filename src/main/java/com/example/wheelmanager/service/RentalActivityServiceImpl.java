@@ -1,7 +1,9 @@
 package com.example.wheelmanager.service;
 
 import com.example.wheelmanager.domain.model.RentalActivity;
-import com.example.wheelmanager.domain.repository.*;
+import com.example.wheelmanager.domain.repository.OfferRepository;
+import com.example.wheelmanager.domain.repository.RentalActivityRepository;
+import com.example.wheelmanager.domain.repository.ReservationRepository;
 import com.example.wheelmanager.domain.service.RentalActivityService;
 import com.example.wheelmanager.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class RentalActivityServiceImpl implements RentalActivityService {
     private RentalActivityRepository rentalActivityRepository;
 
     @Autowired
-    private ReservationRespository reservationRespository;
+    private ReservationRepository reservationRepository;
 
     @Autowired
     private OfferRepository offerRepository;
@@ -27,35 +29,35 @@ public class RentalActivityServiceImpl implements RentalActivityService {
     }
 
     @Override
-    public RentalActivity getRentalActivitiesById(Long rentalActivityId){
-        return rentalActivityRepository.findById(rentalActivityId).orElseThrow(() -> new ResourceNotFoundException("RentalActivity", "Id",rentalActivityId));
+    public RentalActivity getRentalActivitiesById(Long rentalActivityId) {
+        return rentalActivityRepository.findById(rentalActivityId).orElseThrow(() -> new ResourceNotFoundException("RentalActivity", "Id", rentalActivityId));
     }
 
     @Override
     public RentalActivity createRentalActivities(Long reservationId, Long offerId, RentalActivity rentalActivity) {
-        return reservationRespository.findById(reservationId).map(reservation->{
+        return reservationRepository.findById(reservationId).map(reservation -> {
             rentalActivity.setReservation(reservation);
             return offerRepository.findById(offerId).map(offer -> {
                 rentalActivity.setOffer(offer);
                 return rentalActivityRepository.save(rentalActivity);
-            }).orElseThrow(()->new ResourceNotFoundException("Offer","Id", offerId));
-        }).orElseThrow(()->new ResourceNotFoundException("Reservation","Id", reservationId));
+            }).orElseThrow(() -> new ResourceNotFoundException("Offer", "Id", offerId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Reservation", "Id", reservationId));
     }
 
     @Override
     public RentalActivity updateRentalActivities(Long rentalActivityId, RentalActivity rentalActivityRequest) {
         RentalActivity rentalActivity = rentalActivityRepository.findById(rentalActivityId)
-                .orElseThrow(() -> new ResourceNotFoundException("RentalActivity", "Id",rentalActivityId));
-        return  rentalActivityRepository.save(
-        rentalActivity.setPrice(rentalActivityRequest.getPrice())
-        .setCommission(rentalActivityRequest.getCommission())
-        .setInsurancePrice(rentalActivityRequest.getInsurancePrice()));
+                .orElseThrow(() -> new ResourceNotFoundException("RentalActivity", "Id", rentalActivityId));
+        return rentalActivityRepository.save(
+                rentalActivity.setPrice(rentalActivityRequest.getPrice())
+                        .setCommission(rentalActivityRequest.getCommission())
+                        .setInsurancePrice(rentalActivityRequest.getInsurancePrice()));
     }
 
     @Override
     public ResponseEntity<?> deleteRentalActivities(Long rentalActivityId) {
         RentalActivity rentalActivity = rentalActivityRepository.findById(rentalActivityId)
-                .orElseThrow(() -> new ResourceNotFoundException("RentalActivity", "Id",rentalActivityId));
+                .orElseThrow(() -> new ResourceNotFoundException("RentalActivity", "Id", rentalActivityId));
         rentalActivityRepository.delete(rentalActivity);
         return ResponseEntity.ok().build();
     }

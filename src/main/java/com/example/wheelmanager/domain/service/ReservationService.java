@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface ReservationService {
     Page<Reservation> getAllReservations(Pageable pageable);
+
     Reservation getReservationsById(Long reservationId);
-    Reservation createReservation(Long userId,Long vehicleId,Reservation reservation);
-    Reservation updateReservation(Long reservationId,Reservation messageRequest);
+
+    Reservation createReservation(Long userId, Long vehicleId, Reservation reservation);
+
+    Reservation updateReservation(Long reservationId, Reservation messageRequest);
+
     ResponseEntity<?> deleteReservation(Long reservationId);
 }

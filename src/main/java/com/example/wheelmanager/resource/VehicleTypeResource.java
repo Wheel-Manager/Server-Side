@@ -2,8 +2,9 @@ package com.example.wheelmanager.resource;
 
 import com.example.wheelmanager.domain.model.AuditModel;
 
-public class VehicleTypeResource extends AuditModel{
+public class VehicleTypeResource extends AuditModel {
     private Long id;
+
     private String vehicleTypeName;
 
     public Long getId() {
