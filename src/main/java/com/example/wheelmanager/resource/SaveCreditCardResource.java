@@ -7,6 +7,7 @@ public class SaveCreditCardResource {
     @NotNull
     @Size(max = 100)
     private String cardNumber;
+
     @NotNull
     @Size(max = 100)
     private String cardCvv;

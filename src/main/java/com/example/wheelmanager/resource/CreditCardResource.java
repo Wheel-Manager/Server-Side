@@ -6,8 +6,11 @@ import java.util.Date;
 
 public class CreditCardResource extends AuditModel {
     private Long id;
+
     private String cardNumber;
+
     private Date expirationDate;
+
     private String cardCvv;
 
     public Long getId() {

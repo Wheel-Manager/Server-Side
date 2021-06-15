@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class AuthenticationResponse implements Serializable {
 
     private String username;
+
     private String token;
 
     public AuthenticationResponse(String username, String token) {

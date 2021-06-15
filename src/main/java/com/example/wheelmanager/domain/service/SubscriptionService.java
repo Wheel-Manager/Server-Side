@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface SubscriptionService {
     Page<Subscription> getAllSubscriptions(Pageable pageable);
+
     Subscription getSubscriptionById(Long subscriptionId);
+
     Subscription createSubscription(Long userId, Subscription subscription);
+
     Subscription updateSubscription(Long subscriptionId, Subscription messageRequest);
+
     ResponseEntity<?> deleteSubscription(Long subscriptionId);
 }

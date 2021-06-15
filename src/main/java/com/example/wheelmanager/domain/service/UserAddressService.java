@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface UserAddressService {
     Page<UserAddress> getAllUserAddresses(Pageable pageable);
+
     UserAddress getUserAddressesById(Long userAddressId);
-    UserAddress createUserAddresses(Long userId,Long addressId,UserAddress userAddress);
-    UserAddress updateUserAddresses(Long userAddressId,UserAddress messageRequest);
+
+    UserAddress createUserAddresses(Long userId, Long addressId, UserAddress userAddress);
+
+    UserAddress updateUserAddresses(Long userAddressId, UserAddress messageRequest);
+
     ResponseEntity<?> deleteUserAddresses(Long userAddressId);
 }

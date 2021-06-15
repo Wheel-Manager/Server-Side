@@ -4,22 +4,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "addresses")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Address extends AuditModel{
+public class Address extends AuditModel {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    private  Double latitude;
+    private Double latitude;
 
     @NotNull
-    private  Double longitude;
+    private Double longitude;
 
 
     @NotNull

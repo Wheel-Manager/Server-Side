@@ -1,6 +1,5 @@
 package com.example.wheelmanager.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -13,7 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "comments")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Comment extends AuditModel{
+public class Comment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,17 +22,17 @@ public class Comment extends AuditModel{
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "publication_date", nullable = false, updatable = false)
+    @Column(name = "publication_date", nullable = false, updatable = false)
     @CreatedDate
     private Date publicationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "user_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "vehicle_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "vehicle_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Vehicle vehicle;
 

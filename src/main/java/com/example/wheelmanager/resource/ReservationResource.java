@@ -8,10 +8,15 @@ import java.util.Date;
 
 public class ReservationResource extends AuditModel {
     private Long id;
+
     private Date startDate;
+
     private Date endDate;
+
     private Double price;
+
     private User user;
+
     private Vehicle vehicle;
 
     public Long getId() {

@@ -7,12 +7,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "vehicle_types")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class VehicleType extends AuditModel{
+public class VehicleType extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "type_name",nullable = false,length = 50)
+    @Column(name = "type_name", nullable = false, length = 50)
     private String typeName;
 
     public Long getId() {

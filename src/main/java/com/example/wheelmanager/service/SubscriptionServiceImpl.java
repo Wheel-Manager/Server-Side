@@ -27,8 +27,8 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public Subscription getSubscriptionById(Long subscriptionId) {
         return subscriptionRepository.findById(subscriptionId)
-                .orElseThrow(()->new ResourceNotFoundException(
-                        "Subscription","Id", subscriptionId));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Subscription", "Id", subscriptionId));
     }
 
     @Override
@@ -36,16 +36,16 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
         return userRepository.findById(userId).map(user -> {
             subscriptionRequest.setUser(user);
-                return subscriptionRepository.save(subscriptionRequest);
-        }).orElseThrow(() -> new ResourceNotFoundException( "User", "Id", userId));
+            return subscriptionRepository.save(subscriptionRequest);
+        }).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
     }
 
     @Override
     public Subscription updateSubscription(Long subscriptionId, Subscription subscriptionRequest) {
 
         Subscription subscription = subscriptionRepository.findById(subscriptionId)
-                .orElseThrow(()->new ResourceNotFoundException(
-                        "Subscription","Id", subscriptionId));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Subscription", "Id", subscriptionId));
         return subscriptionRepository.save(
                 subscription.setDescription(subscriptionRequest.getDescription())
                         .setPrice(subscriptionRequest.getPrice()));

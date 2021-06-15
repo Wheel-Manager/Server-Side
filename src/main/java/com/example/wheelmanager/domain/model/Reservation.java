@@ -12,31 +12,31 @@ import java.util.Date;
 @Entity
 @Table(name = "reservations")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Reservation extends AuditModel{
+public class Reservation extends AuditModel {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "start_date", nullable = false, updatable = false)
+    @Column(name = "start_date", nullable = false, updatable = false)
     @CreatedDate
     private Date startDate;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "end_date", nullable = false, updatable = false)
+    @Column(name = "end_date", nullable = false, updatable = false)
     @CreatedDate
     private Date endDate;
 
     @NotNull
     private Double price;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "user_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "vehicle_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "vehicle_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Vehicle vehicle;
 

@@ -1,17 +1,20 @@
 package com.example.wheelmanager.resource;
-import com.example.wheelmanager.domain.model.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import com.example.wheelmanager.domain.model.AuditModel;
+import com.example.wheelmanager.domain.model.Offer;
+import com.example.wheelmanager.domain.model.Reservation;
 
-public class RentalActivityResource extends AuditModel{
+public class RentalActivityResource extends AuditModel {
     private Long id;
+
     private double price;
+
     private double commission;
+
     private double insurancePrice;
+
     private Reservation reservation;
+
     private Offer offer;
 
     public Long getId() {

@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface AddressService {
     Page<Address> getAllAddresses(Pageable pageable);
+
     Address getAddressById(Long addressId);
+
     Address createAddress(Address address);
+
     Address updateAddress(Long addressId, Address messageRequest);
+
     ResponseEntity<?> deleteAddress(Long addressId);
 }

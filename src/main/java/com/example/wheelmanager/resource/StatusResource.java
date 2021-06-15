@@ -5,7 +5,7 @@ import com.example.wheelmanager.domain.model.AuditModel;
 public class StatusResource extends AuditModel {
 
     private Long id;
-    private String name;
+    private String statusName;
 
     public Long getId() {
         return id;
@@ -16,12 +16,12 @@ public class StatusResource extends AuditModel {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getStatusName() {
+        return statusName;
     }
 
-    public StatusResource setName(String name) {
-        this.name = name;
+    public StatusResource setStatusName(String statusName) {
+        this.statusName = statusName;
         return this;
     }
 }

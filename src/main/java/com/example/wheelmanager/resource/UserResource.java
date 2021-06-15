@@ -6,14 +6,23 @@ import java.util.Date;
 
 public class UserResource extends AuditModel {
     private Long id;
+
     private String userName;
+
     private String password;
+
     private String email;
+
     private String name;
+
     private String lastName;
+
     private String imageUrl;
+
     private Long dni;
+
     private String gender;
+
     private Date birthDay;
 
     public Long getId() {

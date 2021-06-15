@@ -5,8 +5,11 @@ import com.example.wheelmanager.domain.model.AuditModel;
 public class AddressResource extends AuditModel {
 
     private Long id;
-    private  Double latitude;
-    private  Double longitude;
+
+    private Double latitude;
+
+    private Double longitude;
+
     private String description;
 
     public Long getId() {

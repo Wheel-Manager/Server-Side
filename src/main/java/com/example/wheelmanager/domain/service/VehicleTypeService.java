@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface VehicleTypeService {
     Page<VehicleType> getAllVehicleTypes(Pageable pageable);
+
     VehicleType getVehicleTypeById(Long vehicleTypeId);
+
     VehicleType createVehicleType(VehicleType vehicleType);
+
     VehicleType updateVehicleType(Long vehicleTypeId, VehicleType messageRequest);
+
     ResponseEntity<?> deleteVehicleType(Long vehicleTypeId);
 }

@@ -16,21 +16,21 @@ public class StatusServiceImpl implements StatusService {
     private StatusRepository statusRepository;
 
     @Override
-    public Page<Status> getAllStatuses(Pageable pageable)
-    {
+    public Page<Status> getAllStatuses(Pageable pageable) {
         return statusRepository.findAll(pageable);
     }
 
     @Override
-    public Status getStatusById(Long statusId){
+    public Status getStatusById(Long statusId) {
         return statusRepository.findById(statusId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Status", "Id", statusId));
-
     }
 
     @Override
-    public Status createStatus(Status status) { return statusRepository.save(status); }
+    public Status createStatus(Status status) {
+        return statusRepository.save(status);
+    }
 
     @Override
     public Status updateStatus(Long statusId, Status statusRequest) {
@@ -38,7 +38,7 @@ public class StatusServiceImpl implements StatusService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Status", "Id", statusId));
         return statusRepository.save(
-                status.setName(statusRequest.getName()));
+                status.setStatusName(statusRequest.getStatusName()));
     }
 
     @Override
