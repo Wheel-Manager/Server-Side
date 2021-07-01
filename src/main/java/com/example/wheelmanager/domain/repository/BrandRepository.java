@@ -1,7 +1,0 @@
-package com.example.wheelmanager.domain.repository;
-
-import com.example.wheelmanager.domain.model.Brand;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface BrandRepository extends JpaRepository<Brand, Long> {
-}
