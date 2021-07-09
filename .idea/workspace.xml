@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8289b443-6250-43ab-a1d5-f661ace1c19e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/WheelManagerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/AddressController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/BrandController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/CommentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/CreditCardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/OfferController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/RentalActivityController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/ReservationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/StatusController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/SubscriptionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/UserAddressController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/VehicleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/VehicleTypeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Brand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/CreditCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/RentalActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Reservation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Status.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Subscription.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/UserAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/VehicleType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IAddressRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IBrandRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ICommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ICreditCardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ICustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IOfferRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IRentalActivityRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IReservationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IStatusRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ISubscriptionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IUserAddressRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IVehicleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IVehicleTypeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/CrudService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IAddressService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IBrandService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ICommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ICreditCardService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ICustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IOfferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IRentalActivityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IReservationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IStatusService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ISubscriptionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IUserAddressService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IVehicleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IVehicleTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/AddressServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/BrandServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/CommentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/CreditCardServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/CustomerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/OfferServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/RentalActivityServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/ReservationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/StatusServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/SubscriptionServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/UserAddressServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/VehicleServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/VehicleTypeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/util/SwaggerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/WheelManagerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/AddressControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/BrandControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/CustomerControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/StatusControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/AddressServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/BrandServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/CustomerServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/StatusServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.properties" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1s9A6nO0nNRHCpmvKU193NsCpJW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.WheelManagerApplication">
+    <configuration name="AddressControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wheelManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hackdead.wheelmanager.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hackdead.wheelmanager.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.hackdead.wheelmanager.controller.AddressControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressControllerTest.findAddressById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wheelManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hackdead.wheelmanager.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hackdead.wheelmanager.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.hackdead.wheelmanager.controller.AddressControllerTest" />
+      <option name="METHOD_NAME" value="findAddressById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wheelManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hackdead.wheelmanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hackdead.wheelmanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hackdead.wheelmanager.service.AddressServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BrandControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wheelManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hackdead.wheelmanager.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hackdead.wheelmanager.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.hackdead.wheelmanager.controller.BrandControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wheelManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hackdead.wheelmanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hackdead.wheelmanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.hackdead.wheelmanager.service.CustomerServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WheelManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="wheelManager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hackdead.wheelmanager.WheelManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.WheelManagerApplication" />
+        <item itemvalue="JUnit.AddressControllerTest.findAddressById" />
+        <item itemvalue="JUnit.AddressControllerTest" />
+        <item itemvalue="JUnit.AddressServiceImplTest" />
+        <item itemvalue="JUnit.BrandControllerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8289b443-6250-43ab-a1d5-f661ace1c19e" name="Default Changelist" comment="" />
+      <created>1620274290027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620274290027</updated>
+      <workItem from="1620274312272" duration="1218000" />
+      <workItem from="1620283309541" duration="5584000" />
+      <workItem from="1620325627004" duration="15391000" />
+      <workItem from="1620345340062" duration="12104000" />
+      <workItem from="1620366036126" duration="1325000" />
+      <workItem from="1620421012524" duration="2012000" />
+      <workItem from="1620426580318" duration="171000" />
+      <workItem from="1620426804508" duration="7789000" />
+      <workItem from="1620449164567" duration="3958000" />
+      <workItem from="1620524674914" duration="3618000" />
+      <workItem from="1620572689179" duration="237000" />
+      <workItem from="1620605332467" duration="2552000" />
+      <workItem from="1620685155244" duration="77000" />
+      <workItem from="1620752957233" duration="1314000" />
+      <workItem from="1620792574530" duration="660000" />
+      <workItem from="1620802845226" duration="587000" />
+      <workItem from="1620876563379" duration="68000" />
+      <workItem from="1621089159236" duration="6937000" />
+      <workItem from="1622056951982" duration="14443000" />
+      <workItem from="1622191153534" duration="12212000" />
+      <workItem from="1622247961409" duration="5603000" />
+      <workItem from="1622262452282" duration="925000" />
+      <workItem from="1622437584386" duration="4511000" />
+      <workItem from="1622446023776" duration="1244000" />
+      <workItem from="1622945581117" duration="6979000" />
+      <workItem from="1623331112010" duration="5118000" />
+      <workItem from="1623363266091" duration="1116000" />
+      <workItem from="1623365918500" duration="4976000" />
+      <workItem from="1623392877362" duration="5037000" />
+      <workItem from="1623499218996" duration="2140000" />
+      <workItem from="1623632571880" duration="6000" />
+      <workItem from="1623805089391" duration="27000" />
+      <workItem from="1623805290531" duration="32000" />
+      <workItem from="1623950600070" duration="12787000" />
+      <workItem from="1624209946809" duration="1868000" />
+      <workItem from="1624404139000" duration="3324000" />
+      <workItem from="1624725033331" duration="11185000" />
+      <workItem from="1624806856619" duration="10598000" />
+      <workItem from="1624893538463" duration="18617000" />
+      <workItem from="1625155429529" duration="6692000" />
+      <workItem from="1625171661577" duration="716000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
