@@ -5,92 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8289b443-6250-43ab-a1d5-f661ace1c19e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/WheelManagerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/AddressController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/BrandController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/CommentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/CreditCardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/OfferController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/RentalActivityController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/ReservationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/StatusController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/SubscriptionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/UserAddressController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/VehicleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/controller/VehicleTypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Brand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/CreditCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Offer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/RentalActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Reservation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Status.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Subscription.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/UserAddress.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/Vehicle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/entities/VehicleType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IAddressRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IBrandRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ICommentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ICreditCardRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ICustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IOfferRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IRentalActivityRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IReservationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IStatusRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/ISubscriptionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IUserAddressRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IVehicleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/repository/IVehicleTypeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/CrudService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IAddressService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IBrandService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ICommentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ICreditCardService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ICustomerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IOfferService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IRentalActivityService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IReservationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IStatusService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/ISubscriptionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IUserAddressService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IVehicleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/IVehicleTypeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/AddressServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/BrandServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/CommentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/CreditCardServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/CustomerServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/OfferServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/RentalActivityServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/ReservationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/StatusServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/SubscriptionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/UserAddressServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/VehicleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/service/impl/VehicleTypeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackdead/wheelmanager/util/SwaggerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/WheelManagerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/AddressControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/BrandControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/CustomerControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/controller/StatusControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/AddressServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/BrandServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/CustomerServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackdead/wheelmanager/service/StatusServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,8 +194,8 @@
       <workItem from="1624725033331" duration="11185000" />
       <workItem from="1624806856619" duration="10598000" />
       <workItem from="1624893538463" duration="18617000" />
-      <workItem from="1625155429529" duration="6692000" />
-      <workItem from="1625171661577" duration="716000" />
+      <workItem from="1625155429529" duration="7018000" />
+      <workItem from="1625175773735" duration="9079000" />
     </task>
     <servers />
   </component>
